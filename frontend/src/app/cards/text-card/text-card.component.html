@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>{{header}}</mat-card-title>
+  <mat-card-content>
+    <form class="form-container" [formGroup]="textcardFG" (ngSubmit)="onFormSubmit()">
+      <mat-form-field>
+        <input matInput required (click)="$event.target.select()" placeholder="change" i18n-placeholder
+          value="{{value}}" formControlName="textcardInput">
+      </mat-form-field>
+      <button type="submit" mat-stroked-button [disabled]="!textcardFG.valid" color="primary">OK</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!-- <mat-card class="text-card">
+  <mat-card-title>Benutzername</mat-card-title>
+  <mat-card-content>
+    <form class="form-container" [formGroup]="usernameFG" (ngSubmit)="onUsernameSubmit()">
+      <mat-form-field>
+        <input matInput required (click)="$event.target.select()" placeholder="Benutzername &auml;ndern" value="{{user.name}}" formControlName="username">
+      </mat-form-field>
+      <button type="submit" id="updateUsernameBtn" mat-stroked-button [disabled]="!usernameFG.valid" color="primary">OK</button>
+    </form>
+  </mat-card-content>
+</mat-card> -->

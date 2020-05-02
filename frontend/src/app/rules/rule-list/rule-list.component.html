@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <h1 class="mat-h1" i18n="@@Rules">Rules</h1>
+  <p class="align-right">
+    <a mat-icon-button routerLink="/rule/add">
+      <mat-icon>add_box</mat-icon>
+    </a>
+  </p>
+  <div class="rule-list">
+    <mat-card class="rule-card mat-elevation-z" *ngFor="let rule of(rules$ | async)" mat-ripple
+      routerLink="/rule/{{rule.id}}">
+      <mat-card-header>
+        <mat-card-title>{{rule.name}}</mat-card-title>
+        <mat-card-subtitle *ngIf="!rule.enabled" i18n="@@Deactivated">Deactivated</mat-card-subtitle>
+        <img mat-card-avatar *ngIf="rule.icon" src="assets/icons/rules/{{rule.icon}}.png" />
+      </mat-card-header>
+      <mat-card-footer class="rule-content" [style.background-color]="rule.color | hexColor">
+
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

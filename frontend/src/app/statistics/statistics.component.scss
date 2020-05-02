@@ -1,0 +1,17 @@
+.grid-container {
+  margin: 10px;
+}
+
+.stats-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  > * {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    margin: 8px;
+  }
+}

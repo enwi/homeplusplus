@@ -1,0 +1,14 @@
+<h2 mat-dialog-title i18n="@@Delete">Delete</h2>
+<!-- Generic message if no other is specified -->
+<mat-dialog-content *ngIf="!data || !data.content; else dynamicContent" i18n>
+  Should this element really be deleted?
+</mat-dialog-content>
+<ng-template #dynamicContent>
+  <!-- Allows html elements, but no scripts thanks to angular -->
+  <mat-dialog-content [innerHTML]="data.content">
+  </mat-dialog-content>
+</ng-template>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close i18n="@@Cancel">Cancel</button>
+  <button mat-raised-button color="warn" mat-dialog-close="true" i18n="@@Delete">Delete</button>
+</mat-dialog-actions>

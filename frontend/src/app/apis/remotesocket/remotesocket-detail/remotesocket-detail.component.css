@@ -1,0 +1,28 @@
+.content {
+  margin: 16px;
+}
+
+.mat-card-sm-image {
+  font-size: 80px;
+}
+
+mat-icon {
+  cursor: default;
+}
+
+a mat-icon {
+  cursor: pointer;
+}
+
+button mat-icon {
+  cursor: pointer;
+}
+
+.edit-form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.align-right {
+  text-align: right;
+}

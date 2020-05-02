@@ -1,0 +1,18 @@
+<mat-card class="sub-action">
+  <mat-card-header>
+    <mat-card-title i18n>Notification</mat-card-title>
+    <mat-icon mat-card-avatar>announcement</mat-icon>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{categoryToString(subAction.category)}}</p>
+    <p i18n>Message: <span>{{subAction.message}}</span></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="edit.emit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="delete.emit()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

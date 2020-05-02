@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-content class="no-title">
+    <div *ngIf="data; else no_data" class="chart-container">
+      <ngx-charts-number-card [scheme]="colorVivid" [results]="data" cardColor="#232837" emptyColor="#1e222e">
+      </ngx-charts-number-card>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #no_data i18n="@@no_data">
+  No data available!
+</ng-template>

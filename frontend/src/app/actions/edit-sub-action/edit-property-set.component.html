@@ -1,0 +1,31 @@
+<div class="edit-form" [formGroup]="form" *ngIf="subAction && container.devices">
+  <mat-form-field appearance="standard">
+    <mat-label i18n="@@Device">Device</mat-label>
+    <mat-select required formControlName="deviceId">
+      <mat-option [value]="device.id" *ngFor="let device of container.devices">{{device.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="container.properties">
+    <mat-label i18n="@@Property">Property</mat-label>
+    <mat-select required formControlName="property">
+      <mat-option [value]="property.key" *ngFor="let property of container.properties | keyvalue">
+        {{property.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <ng-container [ngSwitch]="valueInput" *ngIf="valueInput">
+    <mat-form-field appearance="standard" *ngSwitchCase="'color'">
+      <mat-label i18n="@@Color">Color</mat-label>
+      <input matInput type="color" formControlName="value" />
+    </mat-form-field>
+    <mat-form-field appearance="standard" *ngSwitchCase="'checkbox'" floatPlaceholder="always">
+      <mat-label i18n="@@Value">Value</mat-label>
+      <input matInput required placeholder="Input" value="Input" style="display: none">
+      <mat-checkbox formControlName="value"></mat-checkbox>
+    </mat-form-field>
+    <mat-form-field appearance="standard" *ngSwitchDefault>
+      <mat-label i18n="@@Value">Value</mat-label>
+      <input matInput required [type]="valueInput" formControlName="value" />
+    </mat-form-field>
+  </ng-container>
+</div>

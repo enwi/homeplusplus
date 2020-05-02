@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <h1 class="mat-h1" i18n>Add device</h1>
+  <mat-grid-list class="type-list" cols="3" rowHeight="3:1">
+    <mat-grid-tile>
+      <a routerLink="hue">
+        <mat-card class="type-card" mat-ripple>
+          <mat-card-title class="type-title" i18n>Philips Hue light</mat-card-title>
+          <div class="type-spacer"></div>
+          <mat-icon class="type-icon">wb_incandescent</mat-icon>
+        </mat-card>
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="type-card" mat-ripple routerLink="remoteSocket">
+        <mat-card-title class="type-title" i18n>Wireless socket</mat-card-title>
+        <div class="type-spacer"></div>
+        <mat-icon class="type-icon">rss_feed</mat-icon>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

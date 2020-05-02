@@ -1,0 +1,8 @@
+<div class="edit-form" [formGroup]="form" *ngIf="subAction">
+  <mat-form-field appearance="standard">
+    <mat-label i18n="@@Action">Action</mat-label>
+    <mat-select required formControlName="actionId">
+      <mat-option [value]="action.id" *ngFor="let action of actions$ | async">{{action.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

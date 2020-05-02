@@ -1,0 +1,25 @@
+<mat-card class="edit-card">
+  <form [formGroup]="form" (submit)="clickFinish()" (reset)="clickCancel()">
+    <mat-form-field apperance="standard">
+      <mat-label i18n="@@Type">Type</mat-label>
+      <mat-select required formControlName="type">
+        <mat-option [value]="type" *ngFor="let type of types">{{type.displayName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <app-type-form></app-type-form>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label i18n="@@Delay">Delay</mat-label>
+        <input matInput formControlName="timeout" type="number" />
+      </mat-form-field>
+      <mat-checkbox formControlName="transition" i18n="@@Transition">Transition</mat-checkbox>
+    </p>
+    <p>
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="!form.valid || !currentComponent || !currentComponent.instance.isValid()" i18n="@@Save">
+        Save
+      </button>
+      <button mat-button color="warn" type="reset" i18n="@@Cancel">Cancel</button>
+    </p>
+  </form>
+</mat-card>

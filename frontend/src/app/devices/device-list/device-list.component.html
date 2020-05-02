@@ -1,0 +1,44 @@
+<div class="grid-container">
+  <app-filter-list>
+    <h1 class="mat-h1" i18n="@@Devices">Devices</h1>
+    <p class="align-right">
+      <a mat-icon-button routerLink="/device/add">
+        <mat-icon>add_box</mat-icon>
+      </a>
+    </p>
+    <div class="device-list">
+      <mat-card class="device-card mat-elevation-z" mat-ripple *ngFor="let device of devices$ | async"
+        (keydown)="onDeviceKeyDown($event, device.id)" routerLink="/device/{{device.id}}">
+        <mat-card-header>
+          <img class="device-icon" mat-card-avatar *ngIf="device.icon; else no_icon"
+            src="assets/icons/{{device.icon}}" />
+          <mat-card-title>{{device.name}}</mat-card-title>
+          <mat-card-subtitle i18n>Type: {{device.type}}</mat-card-subtitle>
+          <mat-card-subtitle i18n>ID: {{device.id}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </app-filter-list>
+</div>
+
+<ng-template #no_icon>
+  <mat-icon class="device-icon">device_unknown</mat-icon>
+</ng-template>
+
+<!-- <div class="grid-container">
+  <app-filter-list>
+    <h1 class="mat-h1">Ger&auml;te</h1>
+    <div class="device-list">
+      <mat-card class="device-card mat-elevation-z" mat-ripple *ngFor="let device of devices$ | async" (keydown)="onDeviceKeyDown($event, device.id)"
+        routerLink="/device/{{device.id}}">
+        <mat-card-header>
+          <mat-card-title>{{device.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{device.location}}</p>
+          <p>ID: {{device.id}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </app-filter-list>
+</div> -->

@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title i18n>RAM</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="data$ | async as data; else no_data" class="chart-container">
+      <ngx-charts-pie-chart [scheme]="colorGreenRed" [results]="data$ | async">
+      </ngx-charts-pie-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #no_data i18n="@@no_data">
+  No data available!
+</ng-template>

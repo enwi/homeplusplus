@@ -1,0 +1,12 @@
+.grid-container {
+  margin: 16px;
+}
+
+.add-form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.align-right {
+  text-align: right;
+}

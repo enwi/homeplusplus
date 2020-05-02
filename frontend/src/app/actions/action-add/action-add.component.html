@@ -1,0 +1,43 @@
+<div id="action-box">
+  <mat-card class="action-header">
+    <mat-card-title-group>
+      <mat-icon mat-card-sm-image>router</mat-icon>
+      <mat-card-title i18n>Add action</mat-card-title>
+    </mat-card-title-group>
+    <mat-card-content>
+      <form class="edit-form" [formGroup]="header">
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Name">Name</mat-label>
+          <input matInput required type="text" formControlName="name" />
+          <mat-error i18n>Name cannot be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Color">Color</mat-label>
+          <input matInput type="color" formControlName="color" />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Icon">Icon</mat-label>
+          <mat-select formControlName="icon">
+            <mat-option value="" i18n>No icon</mat-option>
+            <mat-option *ngFor="let icon of icons" [value]="icon[0]">{{icon[1]}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="sub-action-panel">
+    <h1 class="mat-h1" i18n>
+      Sub-Action
+      <mat-divider></mat-divider>
+    </h1>
+    <app-sub-action-list [subActions]="subActions"></app-sub-action-list>
+  </div>
+
+  <mat-divider></mat-divider>
+  <p class="confirm">
+    <button mat-button color="warn" (click)="cancelAction()" i18n="@@Cancel">Cancel</button>
+    <button mat-raised-button color="primary" (click)="finishAction()" [disabled]="!header.valid"
+      i18n="@@Save">Save</button>
+  </p>
+</div>

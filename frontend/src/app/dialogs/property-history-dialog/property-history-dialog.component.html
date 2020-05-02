@@ -1,0 +1,40 @@
+<div class="chart-container">
+  <div class="button-row">
+    <button mat-button (click)="dayClick()">Day</button>
+    <button mat-button (click)="weekClick()">Week</button>
+    <button mat-button (click)="monthClick()">Month</button>
+    <button mat-button (click)="yearClick()">Year</button>
+  </div>
+  <div *ngIf="chartData && hasSeries; else no_data" class="chart-container">
+    <app-double-axis-chart [scheme]="colorScheme" [results]="chartData" xAxis="true" yAxis="true" autoScale="true"
+      roundDomains="true" [curve]="curve">
+
+      <!-- <ng-template #tooltipTemplate let-model="model">
+      This is the single point tooltip template
+      <pre>{{model|json}}</pre>
+    </ng-template> -->
+
+      <ng-template #seriesTooltipTemplate let-model="model">
+        <div class="area-tooltip-container">
+          <div *ngIf="model[0]">{{model[0].name | date:'medium'}}</div>
+          <div style="text-align: left;">
+            <div *ngFor="let entry of model" class="tooltip-item">
+              <span class="tooltip-item-color" [style.background-color]="entry.color"></span>
+              {{entry.series}}: {{entry.value}}
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </app-double-axis-chart>
+  </div>
+</div>
+
+<ng-template #no_data>
+  <ng-container *ngIf="chartData && !hasSeries; else loading" i18n="@@no_data">No data available!</ng-container>
+</ng-template>
+<ng-template #loading>
+  <mat-spinner diameter="70" style="margin:0 auto;"></mat-spinner>
+</ng-template>
+
+<!-- series, value, name -->
+<!-- series, value, name, color -->

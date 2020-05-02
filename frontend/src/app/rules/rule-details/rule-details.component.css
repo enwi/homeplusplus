@@ -1,0 +1,38 @@
+#rule-box {
+  margin: 16px;
+}
+
+.mat-h1 {
+  margin-top: 16px;
+}
+
+.edit-form {
+  margin-left: 8px;
+  margin-right: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-actions {
+  text-align: right;
+}
+
+mat-icon {
+  cursor: default;
+}
+
+button mat-icon {
+  cursor: pointer;
+}
+
+a mat-icon {
+  cursor: pointer;
+}
+
+mat-icon[mat-card-avatar] {
+  font-size: 40px;
+}
+
+.mat-card-sm-image {
+  font-size: 80px;
+}

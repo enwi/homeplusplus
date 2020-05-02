@@ -1,0 +1,13 @@
+<div class="edit-form" [formGroup]="form" *ngIf="subAction">
+  <mat-form-field appearance="standard">
+    <mat-label i18n="@@Category">Category</mat-label>
+    <mat-select formControlName="category">
+      <mat-option [value]="0" i18n="@@Information">Information</mat-option>
+      <mat-option [value]="1" i18n="@@Warning">Warning</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label i18n="@@Message">Message</mat-label>
+    <input matInput required type="text" formControlName="message" />
+  </mat-form-field>
+</div>

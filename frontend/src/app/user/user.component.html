@@ -1,0 +1,91 @@
+<div class="grid-container" *ngIf="(user$ | async) as user">
+  <h1 class="mat-h1" i18n>Profile settings</h1>
+  <div class="user-list">
+
+    <!-- <mat-card class="user-card">
+      <mat-card-title i18n>Profile picture</mat-card-title>
+      <mat-card-content class="user-card-content">
+        <mat-grid-list [cols]="1" rowHeight="fit">
+          <mat-grid-tile>
+            <img #userImg class="clickable" (click)="imgFileInput.click()" src="{{user.picture}}"
+              matTooltip="Bild &auml;ndern" width="200px" height="200px">
+            <input hidden type="file" #imgFileInput (change)="onFileChanged($event)" accept="image/*" />
+            //<img #userImg [src]="data.image">
+          </mat-grid-tile>
+          //<mat-grid-tile>
+            //<form class="form-full" id="changePicForm" action="/changePic" method="post" enctype="multipart/form-data">
+             // <button mat-stroked-button color="primary" (click)="imgFileInput.click()">&Auml;ndern</button>
+              //<input hidden type="file" #imgFileInput (change)="onFileChanged($event)" accept="image/*" />
+            //</form>
+          //</mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card> -->
+
+    <!-- <mat-card class="user-card">
+      <mat-card-title>Profilbild</mat-card-title>
+      <mat-card-content class="user-card-content">
+        <img-cropper #cropper [image]="image" [settings]="cropperSettings"></img-cropper><br>
+      </mat-card-content>
+    </mat-card> -->
+
+    <app-text-card header='Username' i18n-header [value]="user.name" (change)="onUsernameChange($event)">
+    </app-text-card>
+
+    <mat-card class="user-card password-card">
+      <mat-card-title i18n>Password</mat-card-title>
+      <mat-card-content>
+        <mat-vertical-stepper [linear]=true #stepper>
+          <mat-step [stepControl]="firstFormGroup" editable=false>
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel i18n>Enter current password</ng-template>
+              <mat-form-field>
+                <input matInput (click)="$event.target.select()" placeholder="Passwort"
+                  [type]="hide1 ? 'password' : 'text'" formControlName="password" required>
+                <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+                <mat-error *ngIf="firstFormGroup.controls.password.errors?.Invalid" i18n>
+                  Password invalid!
+                </mat-error>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperNext i18n>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" editable=false>
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel i18n>Enter new password</ng-template>
+              <mat-form-field>
+                <input matInput (click)="$event.target.select()" placeholder="Neues Passwort"
+                  [type]="hide2 ? 'password' : 'text'" formControlName="password" required>
+                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput (click)="$event.target.select()" placeholder="Wiederholen"
+                  [type]="hide2 ? 'password' : 'text'" formControlName="confirmPassword" required>
+                <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+                <mat-error *ngIf="secondFormGroup.controls.confirmPassword.errors?.MatchPassword" i18n>
+                  Passwords do not match
+                </mat-error>
+                <mat-error *ngIf="secondFormGroup.controls.confirmPassword.errors?.CchangedPassword" i18n>
+                  Password could not be changed
+                </mat-error>
+              </mat-form-field>
+              <div>
+                <button (click)="changePassword()" mat-button matStepperNext i18n>Done</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel i18n>Done</ng-template>
+            <ng-container i18n>Password changed successfully</ng-container>
+            <div>
+              <button mat-button (click)="stepper.reset()" i18n>Change again</button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

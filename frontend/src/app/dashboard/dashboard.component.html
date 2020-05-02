@@ -1,0 +1,9 @@
+<div class="grid-container">
+  <h1 class="mat-h1" i18n="@@Dashboard">Dashboard</h1>
+  <!-- <mat-grid-list cols="3" rowHeight="350px"> -->
+  <mat-grid-list [responsive]="true" (responsiveColsChange)="cols = $event" gutterSize="6px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.maxCols" [rowspan]="card.maxRows">
+      <app-dashboard-card [component]="card.component" [variables]="card.variables"></app-dashboard-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

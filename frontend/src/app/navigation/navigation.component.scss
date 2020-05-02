@@ -1,0 +1,32 @@
+@import '~@angular/material/theming';
+
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+    position: fixed;
+    margin-top: 64px;
+}
+
+@media(max-width:599px) {
+  .sidenav {
+    margin-top: 56px;
+  }
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    @include mat-elevation(4);
+}
+
+.mat-nav-list {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.mat-icon {
+    color: #999;
+}

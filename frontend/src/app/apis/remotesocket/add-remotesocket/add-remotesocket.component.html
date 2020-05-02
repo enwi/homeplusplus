@@ -1,0 +1,29 @@
+<div class="grid-container">
+  <form [formGroup]="form" (submit)="submit()" (reset)="cancel()">
+    <mat-card>
+      <mat-card-title-group>
+        <mat-card-title i18n>Add Wireless-Socket</mat-card-title>
+        <mat-icon mat-card-sm-image>router</mat-icon>
+      </mat-card-title-group>
+      <mat-card-content class="add-form">
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Name">Name</mat-label>
+          <input matInput formControlName="name" required />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Location">Location</mat-label>
+          <input matInput formControlName="location" />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label i18n="@@Code">Code</mat-label>
+          <input matInput formControlName="code" required />
+          <mat-hint i18n>Format: XXXXXY [X: Group-code(0/1), Y: Socket(1-4)]</mat-hint>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="align-right">
+        <button mat-button color="warn" type="reset" i18n="@@Cancel">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" i18n="@@Save">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

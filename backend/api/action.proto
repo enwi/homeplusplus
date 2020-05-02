@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package messages;
+
+message SubAction {
+	uint64 type = 1;
+	google.protobuf.Any data = 2;
+	uint64 timeout = 3;
+	bool transition = 4;
+}
+
+message Action {
+	uint64 id = 1;
+	string name = 2;
+	string icon = 3;
+	uint32 color = 4;
+	repeated SubAction sub_actions = 5;
+	bool visible = 6;
+}

@@ -1,0 +1,4 @@
+<div class="alignvert" *ngIf="(user$ | async) as user">
+    <img src="{{user.picture}}" width="24" height="24">
+    <span>&nbsp;&nbsp;{{user.name}}</span>
+</div>

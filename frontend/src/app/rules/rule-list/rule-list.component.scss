@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+
+.grid-container {
+  margin: 16px;
+}
+
+.rule-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rule-card {
+  @include mat-elevation-transition;
+  @include mat-elevation(1);
+  display: flex;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover, &:focus {
+    @include mat-elevation(8);
+  }
+}
+
+.align-right {
+  text-align: right;
+}
+
+.rule-content {
+  flex-grow: 1;
+}

@@ -1,0 +1,580 @@
+<div class="tasmota-box" *ngIf="tasmota" [formGroup]="form">
+  <mat-card>
+    <mat-card-title i18n>
+      Name: {{tasmota.name}}
+    </mat-card-title>
+    <mat-card-content>
+      <p (click)="showOnline()" i18n>{{tasmota.properties.get('online')? 'Online' : 'Offline'}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-icon-button (click)="editTasmota()">
+        <mat-icon>edit</mat-icon>
+      </button> -->
+      <!-- <button mat-icon-button (click)="deleteTasmota()">
+        <mat-icon>delete</mat-icon>
+      </button> -->
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="actor-list" formGroupName="properties">
+    <app-properties-slide-toggle-card [deviceId]="tasmota.id" title="Power control" [properties]="powerControls"
+      [disabled]="disabled">
+    </app-properties-slide-toggle-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('Dimmer') || tasmota.properties.has('Dimmer0') || tasmota.properties.has('Dimmer1') || tasmota.properties.has('Dimmer2')">
+      <mat-card-title (click)="showDimmer()">
+        Dimmer control
+      </mat-card-title>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="30">
+          <div *ngIf="tasmota.properties.has('Dimmer')">
+            <mat-grid-tile colspan="1" class="description" (click)="showDimmer()">Dimmer</mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <mat-slider min="0" max="100" formControlName="Dimmer"></mat-slider>
+            </mat-grid-tile>
+          </div>
+          <div *ngIf="tasmota.properties.has('Dimmer0')">
+            <mat-grid-tile colspan="1" class="description" (click)="showDimmer()">Dimmer 0</mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <mat-slider min="0" max="100" formControlName="Dimmer0"></mat-slider>
+            </mat-grid-tile>
+          </div>
+          <div *ngIf="tasmota.properties.has('Dimmer1')">
+            <mat-grid-tile colspan="1" class="description" (click)="showDimmer()">Dimmer 1</mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <mat-slider min="0" max="100" formControlName="Dimmer1"></mat-slider>
+            </mat-grid-tile>
+          </div>
+          <div *ngIf="tasmota.properties.has('Dimmer2')">
+            <mat-grid-tile colspan="1" class="description" (click)="showDimmer()">Dimmer 2</mat-grid-tile>
+            <mat-grid-tile colspan="3">
+              <mat-slider min="0" max="100" formControlName="Dimmer2"></mat-slider>
+            </mat-grid-tile>
+          </div>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card hue-color-hue" *ngIf="tasmota.properties.has('Color') || tasmota.properties.has('White')
+      || tasmota.properties.has('CT') || tasmota.properties.has('Scheme')
+      || tasmota.properties.has('Speed')">
+      <mat-card-title (click)="showColor()">
+        Color control
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field *ngIf="tasmota.properties.has('Color')" appearance="standard">
+          <mat-label>Color</mat-label>
+          <input matInput type="color" formControlName="Color" />
+        </mat-form-field>
+        <div *ngIf="tasmota.properties.has('White')">
+          <span>White</span>
+          <mat-slider min="1" max="100" formControlName="White"></mat-slider>
+        </div>
+        <div *ngIf="tasmota.properties.has('CT')">
+          <span>White</span>
+          <mat-slider min="153" max="500" formControlName="CT"></mat-slider>
+        </div>
+        <mat-form-field *ngIf="tasmota.properties.has('Scheme')">
+          <mat-label>Scheme</mat-label>
+          <select matNativeControl formControlName="Scheme">
+            <option [ngValue]="0">Single color</option>
+            <option [ngValue]="1">Wakeup</option>
+            <option [ngValue]="2">Cycle up</option>
+            <option [ngValue]="3">Cycle down</option>
+            <option [ngValue]="4">Cycle random</option>
+            <option [ngValue]="5">Clock mode</option>
+            <option [ngValue]="6">Candlelight</option>
+            <option [ngValue]="7">RGB</option>
+            <option [ngValue]="8">Christmas</option>
+            <option [ngValue]="9">Hanukkah</option>
+            <option [ngValue]="10">Kwanzaa</option>
+            <option [ngValue]="11">Rainbow</option>
+            <option [ngValue]="12">Fire</option>
+          </select>
+        </mat-form-field>
+        <mat-form-field *ngIf="tasmota.properties.has('Speed')">
+          <mat-label>Speed</mat-label>
+          <input matInput type="number" min="1" max="40" formControlName="Speed" />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('ShutterClose1') || tasmota.properties.has('ShutterOpen1')
+    || tasmota.properties.has('ShutterStop1') || tasmota.properties.has('ShutterPosition1')">
+      <mat-card-title (click)="showShutter1()">
+        Shutter 1 control
+      </mat-card-title>
+      <mat-card-content>
+        <div *ngIf="tasmota.properties.has('ShutterOpen1')">
+          <button mat-stroked-button formControlName="ShutterOpen1">Open</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterStop1')">
+          <button mat-stroked-button formControlName="ShutterStop1">Stop</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterClose1')">
+          <button mat-stroked-button formControlName="ShutterClose1">Close</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterPosition1')">
+          <mat-slider min="0" max="100" formControlName="ShutterPosition1"></mat-slider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('ShutterClose2') || tasmota.properties.has('ShutterOpen2')
+    || tasmota.properties.has('ShutterStop2') || tasmota.properties.has('ShutterPosition2')">
+      <mat-card-title (click)="showShutter2()">
+        Shutter 2 control
+      </mat-card-title>
+      <mat-card-content>
+        <div *ngIf="tasmota.properties.has('ShutterOpen2')">
+          <button mat-stroked-button formControlName="ShutterOpen2">Open</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterStop2')">
+          <button mat-stroked-button formControlName="ShutterStop2">Stop</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterClose2')">
+          <button mat-stroked-button formControlName="ShutterClose2">Close</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterPosition2')">
+          <mat-slider min="0" max="100" formControlName="ShutterPosition2"></mat-slider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('ShutterClose3') || tasmota.properties.has('ShutterOpen3')
+    || tasmota.properties.has('ShutterStop3') || tasmota.properties.has('ShutterPosition3')">
+      <mat-card-title (click)="showShutter3()">
+        Shutter 3 control
+      </mat-card-title>
+      <mat-card-content>
+        <div *ngIf="tasmota.properties.has('ShutterOpen3')">
+          <button mat-stroked-button formControlName="ShutterOpen3">Open</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterStop3')">
+          <button mat-stroked-button formControlName="ShutterStop3">Stop</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterClose3')">
+          <button mat-stroked-button formControlName="ShutterClose3">Close</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterPosition3')">
+          <mat-slider min="0" max="100" formControlName="ShutterPosition3"></mat-slider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('ShutterClose4') || tasmota.properties.has('ShutterOpen4')
+    || tasmota.properties.has('ShutterStop4') || tasmota.properties.has('ShutterPosition4')">
+      <mat-card-title (click)="showShutter4()">
+        Shutter 4 control
+      </mat-card-title>
+      <mat-card-content>
+        <div *ngIf="tasmota.properties.has('ShutterOpen4')">
+          <button mat-stroked-button formControlName="ShutterOpen4">Open</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterStop4')">
+          <button mat-stroked-button formControlName="ShutterStop4">Stop</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterClose4')">
+          <button mat-stroked-button formControlName="ShutterClose4">Close</button>
+        </div>
+        <div *ngIf="tasmota.properties.has('ShutterPosition4')">
+          <mat-slider min="0" max="100" formControlName="ShutterPosition4"></mat-slider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="actor-list">
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('ANALOGA0') || tasmota.properties.has('ANALOGTemperature') || tasmota.properties.has('ANALOGIlluminance')"
+      (click)="showAnalog()">
+      <mat-card-title>
+        {{tasmota.properties.has('ANALOGA0')? 'A0' : tasmota.properties.has('ANALOGTemperature')? 'Temperature': tasmota.properties.has('ANALOGIlluminance')?'Illuminance':'Unknown'}}
+      </mat-card-title>
+      <mat-card-content class="sensorText" style="text-align: center;">
+        {{tasmota.properties.has('ANALOGA0')? tasmota.properties.get('ANALOGA0') : tasmota.properties.has('ANALOGTemperature')? tasmota.properties.get('ANALOGTemperature'): tasmota.properties.has('ANALOGIlluminance')?tasmota.properties.get('ANALOGIlluminance'):'Unknown'}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('AM2301Temperature') || tasmota.properties.has('AM2301Humidity')"
+      (click)="showAM2301()">
+      <mat-card-title>
+        AM2301
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('AM2301Temperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('AM2301Humidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('APDS9960Gesture') || tasmota.properties.has('APDS9960Red')
+      || tasmota.properties.has('APDS9960Green') || tasmota.properties.has('APDS9960Blue')
+      || tasmota.properties.has('APDS9960Ambient') || tasmota.properties.has('APDS9960CCT')
+      || tasmota.properties.has('APDS9960Proximity')" (click)="showAPDS9960()">
+      <mat-card-title>
+        APDS9960
+      </mat-card-title>
+      <mat-card-content>
+        <p>Gesture</p>
+        {{tasmota.properties.get('APDS9960Gesture')}}
+        <p>Red</p>
+        {{tasmota.properties.get('APDS9960Red')}}
+        <p>Green</p>
+        {{tasmota.properties.get('APDS9960Green')}}
+        <p>Blue</p>
+        {{tasmota.properties.get('APDS9960Blue')}}
+        <p>Ambient</p>
+        {{tasmota.properties.get('APDS9960Ambient')}}
+        <p>CCT</p>
+        {{tasmota.properties.get('APDS9960CCT')}}
+        <p>Proximity</p>
+        {{tasmota.properties.get('APDS9960Proximity')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" (click)="showBH1750()" *ngIf="tasmota.properties.has('BH1750Illuminance')">
+      <mat-card-title>
+        BH1750
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BH1750Illuminance')}}</div>
+          <div class="right justifyLeft">lx</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" (click)="showBME280()" *ngIf="tasmota.properties.has('BME280Temperature') || tasmota.properties.has('BME280Humidity')
+      || tasmota.properties.has('BME280Pressure')">
+      <mat-card-title>
+        BME280
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME280Temperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME280Humidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME280Pressure')}}</div>
+          <div class="right justifyLeft">hPa</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME280DewPoint')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('BME680Temperature') || tasmota.properties.has('BME680Humidity')
+      || tasmota.properties.has('BME680Pressure') || tasmota.properties.has('BME680Gas')" (click)="showBME680()">
+      <mat-card-title>
+        BME680
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME680Temperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME680Humidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME680Pressure')}}</div>
+          <div class="right justifyLeft">hPa</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('BME680Gas')}}</div>
+          <!-- <div class="right justifyLeft"></div> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('DHT11Temperature') || tasmota.properties.has('DHT11Humidity')"
+      (click)="showDHT11()">
+      <mat-card-title>
+        DHT11
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('DHT11Temperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('DHT11Humidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('DS18x20Temperature1') || tasmota.properties.has('DS18x20Temperature2')
+      || tasmota.properties.has('DS18x20Temperature3') || tasmota.properties.has('DS18x20Temperature4')
+      || tasmota.properties.has('DS18x20Temperature5') || tasmota.properties.has('DS18x20Temperature6')
+      || tasmota.properties.has('DS18x20Temperature7') || tasmota.properties.has('DS18x20Temperature8')"
+      (click)="showDS18x20()">
+      <mat-card-title>
+        DS18x20
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <span>1 </span>
+        {{tasmota.properties.get('DS18x20Temperature1')}}
+        <span>2 </span>
+        {{tasmota.properties.get('DS18x20Temperature2')}}
+        <span>3 </span>
+        {{tasmota.properties.get('DS18x20Temperature3')}}
+        <span>4 </span>
+        {{tasmota.properties.get('DS18x20Temperature4')}}
+        <span>5 </span>
+        {{tasmota.properties.get('DS18x20Temperature5')}}
+        <span>6 </span>
+        {{tasmota.properties.get('DS18x20Temperature6')}}
+        <span>7 </span>
+        {{tasmota.properties.get('DS18x20Temperature7')}}
+        <span>8 </span>
+        {{tasmota.properties.get('DS18x20Temperature8')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('SR04Distance')" (click)="showHCSR04()">
+      <mat-card-title>
+        HC-SR04
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('SR04Distance')}}</div>
+          <div class="right justifyLeft">cm</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('HTU21Temperature') || tasmota.properties.has('HTU21Humidity')"
+      (click)="showHTU21()">
+      <mat-card-title>
+        HTU21
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('HTU21Temperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('HTU21Humidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('LM75ADTemperature')" (click)="showLM75AD()">
+      <mat-card-title>
+        LM75AD
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('LM75ADTemperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('MLX90614ObjectT') || tasmota.properties.has('MLX90614AmbientT')"
+      (click)="showMLX90614()">
+      <mat-card-title>
+        MLX90614 Temperature
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <span>Object: </span>
+        {{tasmota.properties.get('MLX90614ObjectT')}}
+        <span>Ambient: </span>
+        {{tasmota.properties.get('MLX90614AmbientT')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('MPU6050Temperature') || tasmota.properties.has('MPU6050AccelXAxis')
+      || tasmota.properties.has('MPU6050AccelYAxis') || tasmota.properties.has('MPU6050AccelZAxis')
+      || tasmota.properties.has('MPU6050GyroXAxis') || tasmota.properties.has('MPU6050GyroYAxis')
+      || tasmota.properties.has('MPU6050GyroZAxis') || tasmota.properties.has('MPU6050Yaw')
+      || tasmota.properties.has('MPU6050Pitch') || tasmota.properties.has('MPU6050Roll')" (click)="showMPU6050()">
+      <mat-card-title>
+        MPU6050
+      </mat-card-title>
+      <mat-card-content>
+        <p>Temperature</p>
+        {{tasmota.properties.get('MPU6050Temperature')}}
+        <p>Acceleration x axis</p>
+        {{tasmota.properties.get('MPU6050AccelXAxis')}}
+        <p>Acceleration y axis</p>
+        {{tasmota.properties.get('MPU6050AccelYAxis')}}
+        <p>Acceleration z axis</p>
+        {{tasmota.properties.get('MPU6050AccelZAxis')}}
+        <p>Gyro x axis</p>
+        {{tasmota.properties.get('MPU6050GyroXAxis')}}
+        <p>Gyro y axis</p>
+        {{tasmota.properties.get('MPU6050GyroYAxis')}}
+        <p>Gyro z axis</p>
+        {{tasmota.properties.get('MPU6050GyroZAxis')}}
+        <p>Yaw</p>
+        {{tasmota.properties.get('MPU6050Yaw')}}
+        <p>Pitch</p>
+        {{tasmota.properties.get('MPU6050Pitch')}}
+        <p>Roll</p>
+        {{tasmota.properties.get('MPU6050Roll')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('PMS5003CF1') || tasmota.properties.has('PMS5003CF2_5')
+    || tasmota.properties.has('PMS5003CF10') || tasmota.properties.has('PMS5003PM1')
+    || tasmota.properties.has('PMS5003PM2_5') || tasmota.properties.has('PMS5003PM10')
+    || tasmota.properties.has('PMS5003PB0_3') || tasmota.properties.has('PMS5003PB0_5')
+    || tasmota.properties.has('PMS5003PB1') || tasmota.properties.has('PMS5003PB2_5')
+    || tasmota.properties.has('PMS5003PB5') || tasmota.properties.has('PMS5003PB10')" (click)="showPMS5003()">
+      <mat-card-title>
+        PMS5003
+      </mat-card-title>
+      <mat-card-content>
+        <span>CF 1&#181;m: </span>
+        {{tasmota.properties.get('PMS5003CF1')}}
+        <span>CF 2.5&#181;m: </span>
+        {{tasmota.properties.get('PMS5003CF2_5')}}
+        <span>CF 10&#181;m: </span>
+        {{tasmota.properties.get('PMS5003CF10')}}
+        <span>PM 1&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PM1')}}
+        <span>PM 2.5&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PM2_5')}}
+        <span>PM 10&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PM10')}}
+        <span>PB 0.3&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB0_3')}}
+        <span>PB 0.5&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB0_5')}}
+        <span>PB 1&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB1')}}
+        <span>PB 2.5&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB2_5')}}
+        <span>PB 5&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB5')}}
+        <span>PB 10&#181;m: </span>
+        {{tasmota.properties.get('PMS5003PB10')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('PN532UID') || tasmota.properties.has('PN532Data')">
+      <mat-card-title>
+        PN532
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <p>UID</p>
+        {{tasmota.properties.get('PN532UID')}}
+        <p>Data</p>
+        {{tasmota.properties.get('PN532Data')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('PIR1') || tasmota.properties.has('PIR2')
+      || tasmota.properties.has('PIR3') || tasmota.properties.has('PIR4')
+      || tasmota.properties.has('PIR5') || tasmota.properties.has('PIR6')
+      || tasmota.properties.has('PIR7') || tasmota.properties.has('PIR8')" (click)="showPIR()">
+      <mat-card-title>
+        PIR motion
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <span>1 </span>
+        {{tasmota.properties.get('PIR1')}}
+        <span>2 </span>
+        {{tasmota.properties.get('PIR2')}}
+        <span>3 </span>
+        {{tasmota.properties.get('PIR3')}}
+        <span>4 </span>
+        {{tasmota.properties.get('PIR4')}}
+        <span>5 </span>
+        {{tasmota.properties.get('PIR5')}}
+        <span>6 </span>
+        {{tasmota.properties.get('PIR6')}}
+        <span>7 </span>
+        {{tasmota.properties.get('PIR7')}}
+        <span>8 </span>
+        {{tasmota.properties.get('PIR8')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('SD0X1PM2_5') || tasmota.properties.has('SD0X1PM10')"
+      (click)="showSDS011()">
+      <mat-card-title>
+        SDS011
+      </mat-card-title>
+      <mat-card-content>
+        <span>CF 1&#181;m: </span>
+        <span>PM 2.5&#181;m: </span>
+        {{tasmota.properties.get('SD0X1PM2_5')}}
+        <span>PM 10&#181;m: </span>
+        {{tasmota.properties.get('SD0X1PM10')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card"
+      *ngIf="tasmota.properties.has('SHT3XTemperature') || tasmota.properties.has('SHT3XHumidity')"
+      (click)="showSHT3X()">
+      <mat-card-title>
+        SHT3X
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('SHT3XTemperature')}}</div>
+          <div class="right justifyLeft">°C</div>
+        </div>
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('SHT3XHumidity')}}</div>
+          <div class="right justifyLeft">%</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('TX23SpeedAct') || tasmota.properties.has('TX23SpeedAvg')
+    || tasmota.properties.has('TX23SpeedMin') || tasmota.properties.has('TX23SpeedMax')
+    || tasmota.properties.has('TX23DirCard') || tasmota.properties.has('TX23DirDeg')
+    || tasmota.properties.has('TX23DirAvg') || tasmota.properties.has('TX23DirAvgCard')
+    || tasmota.properties.has('TX23DirMin') || tasmota.properties.has('TX23DirMax')
+    || tasmota.properties.has('TX23DirRange')" (click)="showTX23()">
+      <mat-card-title>
+        TX23
+      </mat-card-title>
+      <mat-card-content>
+        <span>Speed: </span>
+        {{tasmota.properties.get('TX23SpeedAct')}}
+        <span>Speed average: </span>
+        {{tasmota.properties.get('TX23SpeedAvg')}}
+        <span>Speed min: </span>
+        {{tasmota.properties.get('TX23SpeedMin')}}
+        <span>Speed max: </span>
+        {{tasmota.properties.get('TX23SpeedMax')}}
+        <span>Dir card: </span>
+        {{tasmota.properties.get('TX23DirCard')}}
+        <span>Dir degrees: </span>
+        {{tasmota.properties.get('TX23DirDeg')}}
+        <span>Dir average: </span>
+        {{tasmota.properties.get('TX23DirAvg')}}
+        <span>Dir average card: </span>
+        {{tasmota.properties.get('TX23DirAvgCard')}}
+        <span>Dir min: </span>
+        {{tasmota.properties.get('TX23DirMin')}}
+        <span>Dir max: </span>
+        {{tasmota.properties.get('TX23DirMax')}}
+        <span>Dir range: </span>
+        {{tasmota.properties.get('TX23DirRange')}}
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('TSL2561Illuminance')" (click)="showTSL2561()">
+      <mat-card-title>
+        TSL2561
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('TSL2561Illuminance')}}</div>
+          <div class="right justifyLeft">lx</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="actor-card" *ngIf="tasmota.properties.has('VL53L0XDistance')" (click)="showVL53L0X()">
+      <mat-card-title>
+        VL53L0X
+      </mat-card-title>
+      <mat-card-content class="sensorText">
+        <div class="leftRightContainer">
+          <div class="left">{{tasmota.properties.get('VL53L0XDistance')}}</div>
+          <div class="right justifyLeft">cm</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

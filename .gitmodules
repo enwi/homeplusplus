@@ -1,0 +1,24 @@
+[submodule "libs/hueplusplus"]
+	path = libs/hueplusplus
+	url = https://github.com/enwi/hueplusplus.git
+[submodule "libs/googletest"]
+	path = libs/googletest
+	url = https://github.com/google/googletest.git
+[submodule "libs/abseil-cpp"]
+	path = libs/abseil-cpp
+	url = https://github.com/abseil/abseil-cpp.git
+[submodule "libs/sqlpp11"]
+	path = libs/sqlpp11
+	url = https://github.com/rbock/sqlpp11.git
+[submodule "libs/sqlpp11-connector-sqlite3"]
+	path = libs/sqlpp11-connector-sqlite3
+	url = https://github.com/rbock/sqlpp11-connector-sqlite3.git
+[submodule "libs/hinnant-date"]
+	path = libs/hinnant-date
+	url = https://github.com/HowardHinnant/date.git
+[submodule "libs/protobuf"]
+	path = libs/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "libs/cryptopp"]
+	path = libs/cryptopp
+	url = https://github.com/weidai11/cryptopp.git

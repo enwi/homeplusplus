@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Delete" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/delete-dialog/delete-dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/delete-dialog/delete-dialog.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cd68514523773a24d6ab96ad85f40945a66787a0" datatype="html">
+        <source>
+  Should this element really be deleted?
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/delete-dialog/delete-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/delete-dialog/delete-dialog.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-sub-action.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/editable-condition/editable-condition.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="87d50eb0390df5757fa954b64ec134142add732c" datatype="html">
+        <source>Toggle property</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-toggle.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="351acce35931dce24062737466670e46291a77a0" datatype="html">
+        <source>Device: <x id="INTERPOLATION" equiv-text="{{device.name}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-toggle.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-set.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fe9cee021b58e547f860c81945e6f3d4ba62901d" datatype="html">
+        <source>Property: <x id="INTERPOLATION" equiv-text="{{subAction.property}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-toggle.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-set.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9a1004030b332d67c34af5c6fd8321b7a1b6155e" datatype="html">
+        <source>Toggle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-toggle.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2cfce6623fdb99cbbe6ed5ecfea27b9604e07b0a" datatype="html">
+        <source>Set property</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-set.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9db495817621dd20d2650cc4953dd50773e6cf47" datatype="html">
+        <source>Set to: <x id="INTERPOLATION" equiv-text="{{subAction.value}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/actor-set.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dfb6e8f1028903902ead54d62afeb71adfa750ff" datatype="html">
+        <source>Notification</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/notification.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8e0d1ff3784867cc5efd5f9ad6af937ae2025fcd" datatype="html">
+        <source>Message: <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/><x id="INTERPOLATION" equiv-text="{{subAction.message}}"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/notification.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4de19b9c290375f8dc6b2758036f5b66607852a1" datatype="html">
+        <source>Call action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/recursive-action.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae6a47686b94316ba4edc476917ac161718ec3d8" datatype="html">
+        <source>Action: <x id="INTERPOLATION" equiv-text="{{action.name}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/sub-actions/recursive-action.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Device" datatype="html">
+        <source>Device</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-set.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-toggle.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Property" datatype="html">
+        <source>Property</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-set.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-toggle.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Color" datatype="html">
+        <source>Color</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-set.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Value" datatype="html">
+        <source>Value</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-set.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-property-set.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Category" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-notification.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Information" datatype="html">
+        <source>Information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-notification.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Warning" datatype="html">
+        <source>Warning</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-notification.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Message" datatype="html">
+        <source>Message</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-notification.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Action" datatype="html">
+        <source>Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-recursive-action.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3498ff60818caf49f07c5535e07530fbbaa49892" datatype="html">
+        <source>Add Sub-Action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/sub-action-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="67fc3fe0566f8700b84a908c35497759db78addc" datatype="html">
+        <source>Username:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4434eb250f44b5effd90253c0c9f2bf1e69ec13f" datatype="html">
+        <source>Password:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login/login.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b1002a4245bc8f5b695bed27b068f48698c9e4db" datatype="html">
+        <source>Smarthome</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Dashboard" datatype="html">
+        <source>Dashboard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/dashboard/dashboard.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Devices" datatype="html">
+        <source>Devices</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/device-list/device-list.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Actions" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-list/action-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Rules" datatype="html">
+        <source>Rules</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-list/rule-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Statistics" datatype="html">
+        <source>Statistics</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/statistics/statistics.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Settings" datatype="html">
+        <source>Settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Logout" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/navigation/navigation.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dca43d411c02a4564b73dc5b127b36197e090c8d" datatype="html">
+        <source>CPU temperature</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/cpu-temperature-card/cpu-temperature-card.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="no_data" datatype="html">
+        <source>
+  No data available!
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/cpu-temperature-card/cpu-temperature-card.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/device-info-card/device-info-card.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/memory-usage-card/memory-usage-card.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/cpu-usage-card/cpu-usage-card.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/user-info-card/user-info-card.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/dialogs/property-history-dialog/property-history-dialog.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ebeb4cbaeb334b1a61d90fee9bbdc2b2099a9c5f" datatype="html">
+        <source>RAM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/memory-usage-card/memory-usage-card.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e947ac403bf701673ac01588cff0343d1601bfb" datatype="html">
+        <source>change</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cards/text-card/text-card.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="015e45e21b86e81108cda9cd0e74a9a0cdd986f0" datatype="html">
+        <source>Profile settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="08c74dc9762957593b91f6eb5d65efdfc975bf48" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f3a7c44a7d6776b44d6663d6f6d7799ea585daa" datatype="html">
+        <source>Enter current password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="45a4165978c75af75d710d369063cd58f210582f" datatype="html">
+        <source>
+                  Password invalid!
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f732c304c7433e5a83ffcd862c3dce709a0f4982" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="34d8ec77296c7e78a332917403b5b3992780b3fb" datatype="html">
+        <source>Enter new password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f18d568baff93600d12e11f5d6f78322484ea93" datatype="html">
+        <source>
+                  Passwords do not match
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bcd8dd3c44efdd7e855d1851934c38bf99c6fc8b" datatype="html">
+        <source>
+                  Password could not be changed
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8dd413cee2228118c536f503709329a4d1a395e2" datatype="html">
+        <source>Done</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7bedad9b0124bf3b25cfb240061b466a933eee1a" datatype="html">
+        <source>Password changed successfully</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9400783847ce163a6a6891921bf7b44c31dbe825" datatype="html">
+        <source>Change again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/user/user.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c25ba90b5f337363b5ecca98da6e2cfcdcde8ca7" datatype="html">
+        <source>Device not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/device-detail/device-detail.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="da504afc8305cb9704cb97dc48efee88617d0981" datatype="html">
+        <source>Type: <x id="INTERPOLATION" equiv-text="{{device.type}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/device-list/device-list.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c94a40f65fa36a0b4208ca42eaf60639df08e23" datatype="html">
+        <source>ID: <x id="INTERPOLATION" equiv-text="{{device.id}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/device-list/device-list.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb6c2d4431fe36f4b32ab207ca12cf25f6b910ed" datatype="html">
+        <source>Add device</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/add-device/add-device.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a345620baa39fdbff3b11410678e0e5046487b16" datatype="html">
+        <source>Philips Hue light</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/add-device/add-device.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="621b860e6f1ebc10925de2fdbc900b3e725b8f60" datatype="html">
+        <source>Wireless socket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/devices/add-device/add-device.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e110c6008286bdd02943e907a1ba6408ca5af26" datatype="html">
+        <source>Add Wireless-Socket</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Location" datatype="html">
+        <source>Location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Code" datatype="html">
+        <source>Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5666e21acb527438c156362467378025a256323" datatype="html">
+        <source>Format: XXXXXY [X: Group-code(0/1), Y: Socket(1-4)]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Save" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/add-remotesocket/add-remotesocket.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-sub-action.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/editable-condition/editable-condition.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="54bde5ec2054f690f7f9da5389b70ba1328fcb5d" datatype="html">
+        <source>Name cannot be empty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Groups" datatype="html">
+        <source>Groups</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/remotesocket/remotesocket-detail/remotesocket-detail.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f8b2bb476981727ab34ed40fde1218361f92c45" datatype="html">
+        <source>Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-list/action-list.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="362feb4ac26b5ffa8a4015bd0b192504951cd170" datatype="html">
+        <source>Name: <x id="INTERPOLATION" equiv-text="{{action.name}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a769a71ac30ed017f7683a4685fa71cd4cd5d398" datatype="html">
+        <source>Icon: <x id="INTERPOLATION" equiv-text="{{action.icon}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6e2e0b9523a2db93ed5d4754a84dac93cb595db7" datatype="html">
+        <source>Edit action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2937afabe224f343b4b3550839b6909a607391e3" datatype="html">
+        <source>Delete action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Icon" datatype="html">
+        <source>Icon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e61fffafa3dd42db1529a33604b141ff67a2a857" datatype="html">
+        <source>No icon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="295d047093078e8a848c3afa453d07a5708a1931" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {No Sub-Actions} =1 {<x id="INTERPOLATION" equiv-text="{{action.subActions.length}}"/> Sub-Action} other {<x id="INTERPOLATION" equiv-text="{{action.subActions.length}}"/> Sub-Actions} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-details/action-details.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Type" datatype="html">
+        <source>Type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-sub-action.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Delay" datatype="html">
+        <source>Delay</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-sub-action.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Transition" datatype="html">
+        <source>Transition</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/edit-sub-action/edit-sub-action.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="127d4cacf77d2ef1bd2df9935d8cc04101c411c0" datatype="html">
+        <source>Add action</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e3ffd7ebd5a09e1799d344705982e8b305df19ae" datatype="html">
+        <source>
+      Sub-Action
+      <x id="START_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;mat-divider&gt;"/><x id="CLOSE_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;/mat-divider&gt;"/>
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/actions/action-add/action-add.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Deactivated" datatype="html">
+        <source>Deactivated</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-list/rule-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="206cfc5e988bfa98a0fd07dafdeebe098a824e24" datatype="html">
+        <source>
+  <x id="INTERPOLATION" equiv-text="{{condition.state ? &apos;Always&apos; : &apos;Never&apos;}}"/>.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/conditions/constant-condition.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a606df4f3578ae30485db27b62fff31269aaa5c" datatype="html">
+        <source>
+  The sensor &quot;<x id="INTERPOLATION" equiv-text="{{sensor.name}}"/>&quot; of device &quot;<x id="INTERPOLATION_1" equiv-text="{{device.name}}"/>&quot; <x id="INTERPOLATION_2" equiv-text="{{getComparisonString()}}"/>.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/conditions/device-condition.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e81ab0b6d30f567534628b956095aeee175d342" datatype="html">
+        <source>Icon: <x id="INTERPOLATION" equiv-text="{{rule.icon}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Active" datatype="html">
+        <source>Active</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="75c1ed09041d390fa6809310a056732d01777128" datatype="html">
+        <source>
+      Conditions
+      <x id="START_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;mat-divider&gt;"/><x id="CLOSE_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;/mat-divider&gt;"/>
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="86be90a21578b4de9b558386de6666789854823e" datatype="html">
+        <source>
+      Actions
+      <x id="START_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;mat-divider&gt;"/><x id="CLOSE_TAG_MAT-DIVIDER" ctype="x-mat-divider" equiv-text="&lt;/mat-divider&gt;"/>
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-details/rule-details.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="90416b6e68e7bc180469211c70caef180e1f06bd" datatype="html">
+        <source>Add rule</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/rule-add/rule-add.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb0d8c7d921bc9d97697d3e41b1f8dda01cc1c39" datatype="html">
+        <source>Condition</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/rules/editable-condition/editable-condition.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6bc1b20c4dc99600c0a6debec19da8bef24ce2e5" datatype="html">
+        <source>
+  Logged out.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/logout/logout.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85eefffe30c5c353889ca51661d1683751196594" datatype="html">
+        <source>
+      Name: <x id="INTERPOLATION" equiv-text="{{tasmota.name}}"/>
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/tasmota/tasmota-detail/tasmota-detail.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8996c7e279b52246a241ee16cb5b95dda9fdd737" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{tasmota.properties.get(&apos;online&apos;)? &apos;Online&apos; : &apos;Offline&apos;}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/apis/tasmota/tasmota-detail/tasmota-detail.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

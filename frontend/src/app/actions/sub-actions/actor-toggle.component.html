@@ -1,0 +1,19 @@
+<mat-card class="sub-action">
+  <mat-card-header>
+    <mat-card-title i18n>Toggle property</mat-card-title>
+    <mat-icon mat-card-avatar>swap_horiz</mat-icon>
+  </mat-card-header>
+  <mat-card-content *ngIf="device$ | async as device">
+    <p i18n>Device: {{device.name}}</p>
+    <p i18n>Property: {{subAction.property}}</p>
+    <p i18n>Toggle</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="edit.emit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="delete.emit()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

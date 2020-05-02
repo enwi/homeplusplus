@@ -1,0 +1,14 @@
+<mat-card class="user-card">
+  <mat-card-title i18n>CPU temperature</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="data; else no_data" class="chart-container">
+      <ngx-charts-line-chart [scheme]="colorGreenRed" [results]="data" xAxis="true" yAxis="true" autoScale="true"
+        roundDomains="true" [yAxisTickFormatting]="yFormat">
+      </ngx-charts-line-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #no_data i18n="@@no_data">
+  No data available!
+</ng-template>

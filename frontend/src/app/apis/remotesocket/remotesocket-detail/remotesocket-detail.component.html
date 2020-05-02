@@ -1,0 +1,68 @@
+<div class="content">
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>
+        Name: {{remoteSocket.name}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        ID: {{remoteSocket.id}}
+      </mat-card-subtitle>
+      <mat-icon mat-card-sm-image>router</mat-icon>
+    </mat-card-title-group>
+    <mat-card-content>
+      <p>Groups: <span *ngIf="remoteSocket.groups.length == 0">none</span>
+        <mat-chip-list>
+          <mat-chip *ngFor="let group of remoteSocket.groups">{{group}}</mat-chip>
+        </mat-chip-list>
+      </p>
+      <mat-slide-toggle [formControl]="toggle">On/Off</mat-slide-toggle>
+    </mat-card-content>
+    <mat-card-actions *ngIf="!editEnabled; else editActions">
+      <mat-divider></mat-divider>
+      <button mat-icon-button title="Bearbeiten" (click)="edit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button title="L&ouml;schen" (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+    <ng-template #editActions>
+      <mat-card-actions>
+        <mat-divider></mat-divider>
+        <form class="edit-form" [formGroup]="editForm" (ngSubmit)="finishEdit()">
+          <mat-form-field appearance="standard">
+            <mat-label i18n="@@Name">Name</mat-label>
+            <input matInput required type="text" formControlName="name" />
+            <mat-error i18n>Name cannot be empty</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label i18n="@@Groups">Groups</mat-label>
+            <mat-chip-list #groupChipList>
+              <mat-chip *ngFor="let group of editGroups" selectable="false" removable="true"
+                (removed)="removeGroup(group)">
+                {{group}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="New group" [matChipInputFor]="groupChipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeyCodes" matChipInputAddOnBlur="true"
+                (matChipInputTokenEnd)="addGroup($event)" />
+            </mat-chip-list>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label i18n="@@Code">Code</mat-label>
+            <input matInput type="text" formControlName="code" required />
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label i18n="@@Code">Code</mat-label>
+            <input matInput type="text" formControlName="code" required />
+          </mat-form-field>
+          <p class="align-right">
+            <button mat-button type="reset" color="warn" (click)="cancelEdit()" i18n="@@Cancel">Cancel</button>
+            <button mat-raised-button type="submit" color="primary" [disabled]="!editForm.valid"
+              i18n="@@Save">Save</button>
+          </p>
+        </form>
+      </mat-card-actions>
+    </ng-template>
+  </mat-card>
+</div>

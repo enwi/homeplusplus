@@ -1,0 +1,15 @@
+.logo {
+  margin-bottom: 10;
+}
+
+.loginContainer{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginCard {
+  width: fit-content;
+  height: fit-content;
+}

@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>CPU usage</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="data$ | async as data; else no_data" class="chart-container">
+      <ngx-charts-bar-vertical [scheme]="colorGreenRed" [results]="data$ | async" yAxis="true" yScaleMax="100"
+        yScaleMin="0" [yAxisTickFormatting]="yFormat" showDataLabel="true" barPadding=0>
+      </ngx-charts-bar-vertical>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #no_data i18n="@@no_data">
+  No data available!
+</ng-template>

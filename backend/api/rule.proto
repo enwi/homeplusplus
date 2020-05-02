@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "api/action.proto";
+
+package messages;
+
+message RuleCondition {
+	uint64 id = 1;
+	uint64 type = 2;
+	google.protobuf.Any data = 3;
+}
+
+message Rule {
+	uint64 id = 1;
+	string name = 2;
+	string icon = 3;
+	uint32 color = 4;
+
+	bool enabled = 5;
+	RuleCondition condition = 6;
+	Action effect = 7;
+}

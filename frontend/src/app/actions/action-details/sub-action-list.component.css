@@ -1,0 +1,9 @@
+#sub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.panel-action {
+  text-align: right;
+}

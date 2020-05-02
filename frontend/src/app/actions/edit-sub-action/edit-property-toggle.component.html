@@ -1,0 +1,16 @@
+<div class="edit-form" [formGroup]="form" *ngIf="subAction && container.devices">
+  <mat-form-field appearance="standard">
+    <mat-label i18n="@@Device">Device</mat-label>
+    <mat-select required formControlName="deviceId">
+      <mat-option [value]="device.id" *ngFor="let device of container.devices">{{device.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="standard" *ngIf="container.properties">
+    <mat-label i18n="@@Property">Property</mat-label>
+    <mat-select required formControlName="property">
+      <mat-option [value]="property.key" *ngFor="let property of container.properties | keyvalue">
+        {{property.key}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

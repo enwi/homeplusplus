@@ -1,0 +1,13 @@
+.sub-action {
+  width: 200px;
+  height: 200px;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-icon[mat-card-avatar] {
+  font-size: 40px;
+  cursor: default;
+}

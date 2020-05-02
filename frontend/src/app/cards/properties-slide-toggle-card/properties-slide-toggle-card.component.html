@@ -1,0 +1,20 @@
+<mat-card class="actor-card" [formGroup]="form" *ngIf="form && valid">
+  <mat-card-title class="title">
+    <div (click)="showHistory()" class="left">{{title}}</div>
+    <div class="right justifyCenter">
+      <mat-slide-toggle [disabled]="disabled" [checked]="masterChecked" (change)="updateMaster($event)">
+      </mat-slide-toggle>
+    </div>
+  </mat-card-title>
+  <mat-card-content formGroupName="properties">
+    <ng-container *ngFor="let property of properties | keyvalue">
+      <div *ngIf="form.get('properties.'+property.key)" class="leftRightContainer">
+        <div (click)="showHistory()" class="left">{{property.value}}</div>
+        <div class="right justifyCenter">
+          <mat-slide-toggle [formControlName]="property.key" [id]="property.key">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

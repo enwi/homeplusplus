@@ -1,0 +1,49 @@
+@import '~@angular/material/theming';
+
+.grid-container {
+  margin: 16px;
+}
+
+.type-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.type-list mat-grid-tile {
+  overflow: visible;
+}
+
+.type-card {
+  @include mat-elevation-transition;
+  @include mat-elevation(1);
+  box-sizing: border-box;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+
+  &:hover, &:focus {
+    @include mat-elevation(8);
+  }
+}
+
+.type-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.type-spacer {
+  flex-grow: 1;
+}
+
+.type-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}

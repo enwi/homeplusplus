@@ -1,0 +1,377 @@
+ (function(document, player) { var config = {
+    "cdn_url": "https://f.vimeocdn.com",
+    "vimeo_api_url": "api.vimeo.com",
+    "request": {
+      "files": {
+        "dash": {
+          "separate_av": true,
+          "streams": [
+            {
+              "profile": 175,
+              "quality": "1080p",
+              "id": 1736669756,
+              "fps": 25
+            },
+            {
+              "profile": 164,
+              "quality": "360p",
+              "id": 1736669744,
+              "fps": 25
+            },
+            {
+              "profile": 165,
+              "quality": "540p",
+              "id": 1736669754,
+              "fps": 25
+            },
+            {
+              "profile": 139,
+              "quality": "240p",
+              "id": 1736669758,
+              "fps": 25
+            },
+            {
+              "profile": 174,
+              "quality": "720p",
+              "id": 1736669751,
+              "fps": 25
+            }
+          ],
+          "cdns": {
+            "akfire_interconnect_quic": {
+              "url": "https://67vod-adaptive.akamaized.net/exp=1586973110~acl=%2F405565066%2F%2A~hmac=c5ca88f8110ad3dc224ae5d3bff688ef03b1d47717e577029d621b3c9390fe02/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.json?base64_init=1",
+              "origin": "gcs",
+              "avc_url": "https://67vod-adaptive.akamaized.net/exp=1586973110~acl=%2F405565066%2F%2A~hmac=c5ca88f8110ad3dc224ae5d3bff688ef03b1d47717e577029d621b3c9390fe02/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.json?base64_init=1"
+            },
+            "fastly_skyfire": {
+              "url": "https://skyfire.vimeocdn.com/1586973110-0x9c371eb78d93d52eb85fcd8838a1c517d571d783/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.json?base64_init=1",
+              "origin": "gcs",
+              "avc_url": "https://skyfire.vimeocdn.com/1586973110-0x9c371eb78d93d52eb85fcd8838a1c517d571d783/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.json?base64_init=1"
+            }
+          },
+          "streams_avc": [
+            {
+              "profile": 175,
+              "quality": "1080p",
+              "id": 1736669756,
+              "fps": 25
+            },
+            {
+              "profile": 164,
+              "quality": "360p",
+              "id": 1736669744,
+              "fps": 25
+            },
+            {
+              "profile": 165,
+              "quality": "540p",
+              "id": 1736669754,
+              "fps": 25
+            },
+            {
+              "profile": 139,
+              "quality": "240p",
+              "id": 1736669758,
+              "fps": 25
+            },
+            {
+              "profile": 174,
+              "quality": "720p",
+              "id": 1736669751,
+              "fps": 25
+            }
+          ],
+          "default_cdn": "akfire_interconnect_quic"
+        },
+        "hls": {
+          "separate_av": true,
+          "default_cdn": "akfire_interconnect_quic",
+          "cdns": {
+            "akfire_interconnect_quic": {
+              "url": "https://67vod-adaptive.akamaized.net/exp=1586973110~acl=%2F405565066%2F%2A~hmac=c5ca88f8110ad3dc224ae5d3bff688ef03b1d47717e577029d621b3c9390fe02/405565066/sep/video/1736668826,1736669758,1736669756,1736669754,1736669751,1736669744/master.m3u8?f=dash",
+              "origin": "gcs",
+              "avc_url": "https://67vod-adaptive.akamaized.net/exp=1586973110~acl=%2F405565066%2F%2A~hmac=c5ca88f8110ad3dc224ae5d3bff688ef03b1d47717e577029d621b3c9390fe02/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.m3u8?f=dash"
+            },
+            "fastly_skyfire": {
+              "url": "https://skyfire.vimeocdn.com/1586973110-0x9c371eb78d93d52eb85fcd8838a1c517d571d783/405565066/sep/video/1736668826,1736669758,1736669756,1736669754,1736669751,1736669744/master.m3u8?f=dash",
+              "origin": "gcs",
+              "avc_url": "https://skyfire.vimeocdn.com/1586973110-0x9c371eb78d93d52eb85fcd8838a1c517d571d783/405565066/sep/video/1736669758,1736669756,1736669754,1736669751,1736669744/master.m3u8?f=dash"
+            }
+          }
+        },
+        "progressive": [
+          {
+            "profile": 139,
+            "width": 426,
+            "mime": "video/mp4",
+            "fps": 25,
+            "url": "https://vod-progressive.akamaized.net/exp=1586973110~acl=%2A%2F1736669758.mp4%2A~hmac=9143d2085d7c8ff567bc0ffff6b30b768dcf9124ef86ea9a37a415197fb4061b/vimeo-prod-skyfire-std-us/01/1113/16/405565066/1736669758.mp4",
+            "cdn": "akamai_interconnect",
+            "quality": "240p",
+            "id": 1736669758,
+            "origin": "gcs",
+            "height": 240
+          },
+          {
+            "profile": 175,
+            "width": 1920,
+            "mime": "video/mp4",
+            "fps": 25,
+            "url": "https://vod-progressive.akamaized.net/exp=1586973110~acl=%2A%2F1736669756.mp4%2A~hmac=23db0e5e47f7ed8e17a5ccca9e36e04ab1afade45d3541cc2fd1fbc610f16a66/vimeo-prod-skyfire-std-us/01/1113/16/405565066/1736669756.mp4",
+            "cdn": "akamai_interconnect",
+            "quality": "1080p",
+            "id": 1736669756,
+            "origin": "gcs",
+            "height": 1080
+          },
+          {
+            "profile": 165,
+            "width": 960,
+            "mime": "video/mp4",
+            "fps": 25,
+            "url": "https://vod-progressive.akamaized.net/exp=1586973110~acl=%2A%2F1736669754.mp4%2A~hmac=23c0eff9d940bb0e0d2ac9d32926bde4f3ef81ab8af9b452238f6c9801aa9409/vimeo-prod-skyfire-std-us/01/1113/16/405565066/1736669754.mp4",
+            "cdn": "akamai_interconnect",
+            "quality": "540p",
+            "id": 1736669754,
+            "origin": "gcs",
+            "height": 540
+          },
+          {
+            "profile": 174,
+            "width": 1280,
+            "mime": "video/mp4",
+            "fps": 25,
+            "url": "https://vod-progressive.akamaized.net/exp=1586973110~acl=%2A%2F1736669751.mp4%2A~hmac=84b3581baf9125bb822c3dfc12dbb149b08d18f80748e678682a0bb08ddcf54c/vimeo-prod-skyfire-std-us/01/1113/16/405565066/1736669751.mp4",
+            "cdn": "akamai_interconnect",
+            "quality": "720p",
+            "id": 1736669751,
+            "origin": "gcs",
+            "height": 720
+          },
+          {
+            "profile": 164,
+            "width": 640,
+            "mime": "video/mp4",
+            "fps": 25,
+            "url": "https://vod-progressive.akamaized.net/exp=1586973110~acl=%2A%2F1736669744.mp4%2A~hmac=e21fa825a2dedca00b0b7a8202a187a5c332cbfc02bfc3ae6806aaf37bd1a3d2/vimeo-prod-skyfire-std-us/01/1113/16/405565066/1736669744.mp4",
+            "cdn": "akamai_interconnect",
+            "quality": "360p",
+            "id": 1736669744,
+            "origin": "gcs",
+            "height": 360
+          }
+        ]
+      },
+      "lang": "de-DE",
+      "sentry": {
+        "url": "https://6f5f8e1cecfa40fb850f578b69fc1705@sentry.io/1297650",
+        "enabled": false,
+        "debug_enabled": true,
+        "debug_intent": 0
+      },
+      "ab_tests": {
+        "chromecast": {
+          "track": false,
+          "data": {},
+          "group": false
+        },
+        "lookahead_count": {
+          "track": true,
+          "data": {
+            "count": 5
+          },
+          "group": true
+        },
+        "harmonic_average": {
+          "track": false,
+          "data": {},
+          "group": true
+        },
+        "cdn_preference": {
+          "track": false,
+          "data": {
+            "city": "pirmasens",
+            "country_code": "DE",
+            "hls_pref_found": false,
+            "dash_pref_found": false
+          },
+          "group": true
+        },
+        "webvr": {
+          "track": false,
+          "data": {},
+          "group": false
+        }
+      },
+      "referrer": "https://onlinepferdemesse.de/",
+      "cookie_domain": ".vimeo.com",
+      "timestamp": 1586969210,
+      "gc_debug": {
+        "bucket": "vimeo-player-debug"
+      },
+      "expires": 3600,
+      "currency": "EUR",
+      "session": "118f9d9e32847a30d001fcfe0292dc1033ea72991586969210",
+      "cookie": {
+        "scaling": 1,
+        "volume": 1.0,
+        "quality": null,
+        "hd": 0,
+        "captions": null
+      },
+      "build": {
+        "backend": "1.16.0",
+        "js": "3.19.1"
+      },
+      "urls": {
+        "barebone_js": "https://f.vimeocdn.com/p/3.19.1/js/barebone.js",
+        "test_imp": "https://fresnel.vimeocdn.com/add/player-test-impression",
+        "js_base": "https://f.vimeocdn.com/p/3.19.1/js/",
+        "fresnel": "https://fresnel.vimeocdn.com/add/player-stats",
+        "js": "https://f.vimeocdn.com/p/3.19.1/js/player.de-DE.js",
+        "proxy": "https://player.vimeo.com/static/proxy.html",
+        "mux_url": "https://f.vimeocdn.com/p/external/mux.js",
+        "fresnel_mimir_inputs_url": "https://fresnel-events.vimeocdn.com/add/mimir_inputs",
+        "fresnel_chunk_url": "https://fresnel-events.vimeocdn.com/add/chunk_downloads",
+        "three_js": "https://f.vimeocdn.com/p/external/three.rvimeo.min.js",
+        "fresnel_manifest_url": "https://fresnel-events.vimeocdn.com/add/playback_manifest",
+        "chromeless_css": "https://f.vimeocdn.com/p/3.19.1/css/chromeless.css",
+        "chromeless_js": "https://f.vimeocdn.com/p/3.19.1/js/chromeless.js",
+        "css": "https://f.vimeocdn.com/p/3.19.1/css/player.css"
+      },
+      "signature": "371f6b481e54dfdfc41dbf7c0675a3ad",
+      "flags": {
+        "dnt": 1,
+        "preload_video": "metadata_on_hover",
+        "plays": 1,
+        "partials": 1,
+        "autohide_controls": 0
+      },
+      "country": "DE",
+      "file_codecs": {
+        "hevc": {
+          "hdr": [],
+          "sdr": []
+        },
+        "av1": [],
+        "avc": [
+          1736669758,
+          1736669756,
+          1736669754,
+          1736669751,
+          1736669744
+        ]
+      }
+    },
+    "player_url": "player.vimeo.com",
+    "video": {
+      "version": {
+        "current": null,
+        "available": [
+          {
+            "is_current": 1,
+            "id": 114179320,
+            "file_id": 1736668826
+          }
+        ]
+      },
+      "height": 1080,
+      "duration": 887,
+      "thumbs": {
+        "1280": "https://i.vimeocdn.com/video/876368905_1280.jpg",
+        "960": "https://i.vimeocdn.com/video/876368905_960.jpg",
+        "640": "https://i.vimeocdn.com/video/876368905_640.jpg",
+        "base": "https://i.vimeocdn.com/video/876368905"
+      },
+      "owner": {
+        "account_type": "business",
+        "name": "Online-Pferdemesse",
+        "img": "https://i.vimeocdn.com/portrait/defaults-blue_60x60.png",
+        "url": "https://vimeo.com/user108578906",
+        "img_2x": "https://i.vimeocdn.com/portrait/defaults-blue_120x120.png",
+        "id": 108578906
+      },
+      "id": 405565066,
+      "embed_code": "<iframe title=\"vimeo-player\" src=\"https://player.vimeo.com/video/405565066\" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen><\/iframe>",
+      "title": "183_Kopfarbeit2020_Mit_Vorspann",
+      "share_url": "https://vimeo.com/405565066",
+      "width": 1920,
+      "embed_permission": "whitelist",
+      "fps": 25.0,
+      "spatial": 0,
+      "live_event": null,
+      "allow_hd": 1,
+      "hd": 1,
+      "lang": null,
+      "default_to_hd": 0,
+      "url": null,
+      "privacy": "disable",
+      "bypass_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGlwX2lkIjo0MDU1NjUwNjYsImV4cCI6MTU4Njk3MjgyMH0.KVq_rI2xz3gHbZNyeDtejkJbgYlW0CLRNa2osM9OC34",
+      "unlisted_hash": null
+    },
+    "user": {
+      "team_origin_user_id": 0,
+      "liked": 0,
+      "account_type": "none",
+      "vimeo_api_client_token": null,
+      "vimeo_api_interaction_tokens": null,
+      "team_id": 0,
+      "watch_later": 0,
+      "owner": 0,
+      "id": 0,
+      "mod": 0,
+      "logged_in": 0
+    },
+    "embed": {
+      "autopause": 1,
+      "playsinline": 1,
+      "settings": {
+        "fullscreen": 1,
+        "byline": 0,
+        "like": 0,
+        "playbar": 1,
+        "title": 0,
+        "color": 0,
+        "speed": 0,
+        "watch_later": 0,
+        "share": 0,
+        "scaling": 1,
+        "spatial_compass": 1,
+        "collections": 0,
+        "info_on_pause": 0,
+        "portrait": 0,
+        "logo": 0,
+        "embed": 0,
+        "badge": 0,
+        "spatial_label": 0,
+        "volume": 1
+      },
+      "color": "00adef",
+      "texttrack": "",
+      "on_site": 0,
+      "app_id": "122963",
+      "muted": 0,
+      "dnt": 1,
+      "player_id": "",
+      "api": null,
+      "editor": false,
+      "context": "embed.main",
+      "time": 0,
+      "outro": "videos",
+      "log_plays": 1,
+      "quality": null,
+      "transparent": 1,
+      "loop": 0,
+      "autoplay": 0
+    },
+    "view": 1,
+    "vimeo_url": "vimeo.com"
+  }; if (!config.request) { return;
+  } if (typeof config.request === 'object' && 'error' in config.request) { if ('html' in config.request) { document.documentElement.innerHTML = config.request.html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    } return;
+  } var isIframe = (function() { try { return window.self !== window.top;
+    } catch (e) { return true;
+    }
+  }()); if (!isIframe && /twitter/i.test(navigator.userAgent) && config.video.url) { window.location = config.video.url;
+  } if (config.request.lang) { document.documentElement.setAttribute('lang', config.request.lang);
+  } var fullscreenSupport = 'exitFullscreen' in document || 'webkitExitFullscreen' in document || 'webkitCancelFullScreen' in document || 'mozCancelFullScreen' in document || 'msExitFullscreen' in document || 'webkitEnterFullScreen' in document.createElement('video'); var inlineSvgSupport = (function() { var div = document.createElement('div'); div.innerHTML = '<svg/>'; return (div.firstChild && div.firstChild.namespaceURI) === 'http: //www.w3.org/2000/svg'; }()); var windowsPhone = /MSIE 9/.test(navigator.userAgent) && /Windows Phone/.test(navigator.userAgent); var IE10 = /IE 10/.test(navigator.userAgent); var usePlayer = fullscreenSupport || IE10 || windowsPhone; var firstScript = document.getElementsByTagName('script')[0]; var script = document.createElement('script'); var jsDone = false; var playerObject = false; if (!inlineSvgSupport) { usePlayer = false; } if (!usePlayer) { var placeholder = document.querySelector('.vp-placeholder'); if (placeholder && placeholder.parentNode) { placeholder.parentNode.removeChild(placeholder); } } if (usePlayer) { player.className = 'player loading'; var startTime = new Date().getTime(); script.src = config.request.urls.js; firstScript.parentNode.insertBefore(script, firstScript); script['onreadystatechange' in script ? 'onreadystatechange' : 'onload'] = function() { if (!jsDone && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete')) { jsDone = true; playerObject = new VimeoPlayer(player, config, cssDone || { link: link, startTime: startTime }); } }; var cssDone = false; var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = config.request.urls.css + (typeof cacheBuster === 'undefined' ? '' : cacheBuster); document.getElementsByTagName('head')[0].appendChild(link); link.onload = function() { cssDone = true; }; } else { player.innerHTML = '<div class="fallback"><iframe title="vimeo-player" src="/video/405565066/fallback?js&amp;referrer=' + encodeURIComponent(config.request.referrer) + '" frameborder="0"></iframe></div>'; } if (!config.request.flags.dnt && !config.embed.dnt) { window._vuid = [ ['pid', config.request.session] ]; var vim = document.createElement('script'); vim.async = true; vim.src = config.request.urls.vuid_js; firstScript.parentNode.insertBefore(vim, firstScript); } }(document, document.getElementById('player'))); 

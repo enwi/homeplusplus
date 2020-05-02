@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "api/action.proto";
+import "google/protobuf/any.proto";
+
+package messages.sub_actions;
+
+message DeviceSetData {
+	uint64 device_id = 1;
+	string property = 2;
+	google.protobuf.Any value = 3;
+}
+
+message DeviceToggleData {
+	uint64 device_id = 1;
+	string property = 2;
+}
+
+message NotificationData {
+	int32 category = 1;
+	string message = 2;
+}
+
+message RecursiveActionData {
+	uint64 action_id = 1;
+}

@@ -1,0 +1,19 @@
+<mat-card *ngIf="!editing;else edit">
+  <app-condition [condition]="condition"></app-condition>
+  <button mat-icon-button (click)="clickEdit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button mat-icon-button (click)="clickDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</mat-card>
+<ng-template #edit>
+  <form (submit)="finishEdit()" [formGroup]="editForm" (reset)="cancelEdit()">
+    <mat-form-field appearance="standard" [style.display]="'block'">
+      <mat-label i18n>Condition</mat-label>
+      <input matInput type="text" formControlName="condition" />
+    </mat-form-field>
+    <button mat-button color="warn" type="reset" i18n="@@Cancel">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" i18n="@@Save">Save</button>
+  </form>
+</ng-template>

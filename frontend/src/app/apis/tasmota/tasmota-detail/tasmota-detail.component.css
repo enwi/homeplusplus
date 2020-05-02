@@ -1,0 +1,30 @@
+.tasmota-box {
+  margin: 16px;
+}
+
+.actor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actor-card {
+  box-sizing: border-box;
+  width: 300px;
+  /* height: 300px; */
+  height: fit-content;
+  margin: 8px;
+}
+
+/* .description{
+  position: absolute;
+  left: 5px;
+} */
+
+.description > ::ng-deep figure {
+  justify-content: flex-start !important;
+}
+
+.sensorText {
+  font-size: 20px;
+}

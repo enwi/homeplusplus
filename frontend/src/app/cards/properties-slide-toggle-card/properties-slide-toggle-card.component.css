@@ -1,0 +1,16 @@
+.actor-card {
+  box-sizing: border-box;
+  width: 300px;
+  /* height: 300px; */
+  height: fit-content;
+  margin: 8px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.leftRightContainer {
+  height: 32px;
+}

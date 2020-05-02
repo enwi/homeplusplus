@@ -1,0 +1,16 @@
+<!--<mat-card>
+  <mat-card-title>Sensorwert</mat-card-title>
+  <mat-card-content *ngIf="device && sensor">
+    <p>Ger&auml;t: {{device.name}}</p>
+    <p>Sensor: {{sensor.name}}</p>
+    <p>{{getComparisonString()}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button (click)="edit.emit()"><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button (click)="delete.emit()"><mat-icon>delete</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
+-->
+<p *ngIf="device && sensor" i18n>
+  The sensor "{{sensor.name}}" of device "{{device.name}}" {{getComparisonString()}}.
+</p>

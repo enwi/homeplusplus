@@ -1,0 +1,16 @@
+.hue-box {
+  margin: 16px;
+}
+
+.actor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actor-card {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  margin: 8px;
+}

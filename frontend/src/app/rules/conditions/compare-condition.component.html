@@ -1,0 +1,8 @@
+<div class="condition-wrapper">
+  <app-condition [condition]="condition.left" *ngIf="condition.left"></app-condition>
+  <p>
+    {{getCompareString()}}
+    <mat-divider></mat-divider>
+  </p>
+  <app-condition [condition]="condition.right" *ngIf="condition.right"></app-condition>
+</div>

@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <h1 class="mat-h1" i18n="@@Actions">Actions</h1>
+  <p class="align-right">
+    <a mat-icon-button routerLink="/action/add">
+      <mat-icon>add_box</mat-icon>
+    </a>
+  </p>
+  <div class="action-list">
+    <mat-card class="action-card mat-elevation-z" *ngFor="let action of (actions$ | async)">
+      <div class="action-card-div" mat-ripple [style.background-color]="action.color | hexColor"
+        (click)="executeAction(action.id)">
+        <mat-card-header>
+          <mat-card-title>{{action.name}}</mat-card-title>
+          <img mat-card-avatar *ngIf="action.icon" src="assets/icons/actions/{{action.icon}}" />
+        </mat-card-header>
+        <mat-card-content>
+          <p>ID: {{action.id}}</p>
+        </mat-card-content>
+      </div>
+      <mat-card-actions>
+        <a routerLink="/action/{{action.id}}" mat-button i18n>Details</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="hue-box" *ngIf="hue" [formGroup]="form">
+  <mat-card>
+    <mat-card-title>
+      Name: {{hue.name}}
+    </mat-card-title>
+    <!--<mat-card-content>
+    <p>Typ: {{hue.lightType}}</p>
+    <p>Modell: {{hue.modelid}}</p>
+    <p>SW: {{hue.swversion}}</p>
+    <p>Zimmer: {{hue.location}}</p>
+  </mat-card-content>-->
+    <mat-card-actions>
+      <button mat-icon-button (click)="editHue()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteHue()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="actor-list" formGroupName="properties">
+    <mat-card class="actor-card hue-brightness">
+      <mat-slide-toggle formControlName="on">On/Off</mat-slide-toggle>
+    </mat-card>
+    <mat-card class="actor-card hue-brightness" *ngIf="hue.properties.has('brightness')">
+      <p>Brightness</p>
+      <mat-slider min="0" max="255" formControlName="brightness"></mat-slider>
+    </mat-card>
+    <mat-card class="actor-card hue-color-hue" *ngIf="hue.properties.has('hue') && hue.properties.has('saturation')">
+      <mat-form-field appearance="standard">
+        <mat-label>Color</mat-label>
+        <input matInput type="color" formControlName="hueSat" />
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="actor-card hue-color-temp" *ngIf="hue.properties.has('colorTemperature')">
+      <p>Color temperature</p>
+      <mat-slider min="153" max="500" formControlName="colorTemperature"></mat-slider>
+    </mat-card>
+  </div>
+</div>

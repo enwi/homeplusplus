@@ -1,0 +1,11 @@
+<div id="sub-actions">
+  <app-sub-action *ngFor="let subAction of subActions; let i=index" [subAction]="subAction"
+    [type]="getViewType(subAction.type)" (edit)="editSubAction(i)" (delete)="deleteSubAction(i)"></app-sub-action>
+</div>
+<app-edit-sub-action *ngIf="editingSubAction" [subAction]="editingSubAction" (finish)="finishSubAction($event)"
+  (cancel)="cancelSubAction()"></app-edit-sub-action>
+<p class="panel-action">
+  <button mat-icon-button title="Add Sub-Action" i18n-title (click)="addSubAction()">
+    <mat-icon>add_box</mat-icon>
+  </button>
+</p>

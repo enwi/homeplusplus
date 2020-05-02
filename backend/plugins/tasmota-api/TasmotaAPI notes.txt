@@ -1,0 +1,101 @@
+Device is offline:
+[05.04.2020 - 16:33:34][ INFO  ][TasmotaAPI] Got state for device "tasmota_A67B53": "OFF"
+[05.04.2020 - 16:35:02][ INFO  ][TasmotaAPI] Got tele for device "tasmota_A67B53": "Offline"
+
+Decvice is online:
+[05.04.2020 - 16:33:34][ INFO  ][TasmotaAPI] Got state for device "tasmota_A67B53": "ON"
+[07.04.2020 - 07:42:06][ INFO  ][TasmotaAPI] Got tele for device "tasmota_A67B53": "Online"
+
+
+Send status 10
+[07.04.2020 - 08:06:43][ INFO  ][TasmotaAPI        ] Got state for device "tasmota_A67B53": with type STATUS10 payload: {
+ "StatusSNS": {
+  "ANALOG": {
+   "A0": 2
+  },
+  "Time": "2020-04-07T07:06:43"
+ }
+}
+
+-> equivalent tele
+[07.04.2020 - 08:06:59][ INFO  ][TasmotaAPI        ] Got tele for device "tasmota_A67B53" with type SENSOR payload: {
+ "ANALOG": {
+  "A0": 2
+ },
+ "Time": "2020-04-07T07:06:59"
+}
+
+
+Send status 11
+[07.04.2020 - 08:06:48][ INFO  ][TasmotaAPI        ] Got state for device "tasmota_A67B53": with type STATUS11 payload: {
+ "StatusSTS": {
+  "Channel": [
+   52,
+   18,
+   100
+  ],
+  "Color": "852EFF",
+  "Dimmer": 100,
+  "Fade": "OFF",
+  "HSBColor": "265,82,100",
+  "Heap": 25,
+  "LedTable": "ON",
+  "LoadAvg": 21,
+  "MqttCount": 1,
+  "POWER1": "OFF",
+  "Scheme": 0,
+  "Sleep": 50,
+  "SleepMode": "Dynamic",
+  "Speed": 1,
+  "Time": "2020-04-07T07:06:48",
+  "Uptime": "0T00:31:32",
+  "UptimeSec": 1892,
+  "Width": 1,
+  "Wifi": {
+   "AP": 2,
+   "BSSId": "08:86:3B:6E:2F:35",
+   "Channel": 6,
+   "Downtime": "0T00:06:37",
+   "LinkCount": 1,
+   "RSSI": 62,
+   "SSId": "belkin.f35",
+   "Signal": -69
+  }
+ }
+}
+
+-> equivalent tele
+[07.04.2020 - 08:06:59][ INFO  ][TasmotaAPI        ] Got tele for device "tasmota_A67B53" with type STATE payload: {
+ "Channel": [
+  52,
+  18,
+  100
+ ],
+ "Color": "852EFF",
+ "Dimmer": 100,
+ "Fade": "OFF",
+ "HSBColor": "265,82,100",
+ "Heap": 25,
+ "LedTable": "ON",
+ "LoadAvg": 19,
+ "MqttCount": 1,
+ "POWER1": "OFF",
+ "Scheme": 0,
+ "Sleep": 50,
+ "SleepMode": "Dynamic",
+ "Speed": 1,
+ "Time": "2020-04-07T07:06:59",
+ "Uptime": "0T00:31:43",
+ "UptimeSec": 1903,
+ "Width": 1,
+ "Wifi": {
+  "AP": 2,
+  "BSSId": "08:86:3B:6E:2F:35",
+  "Channel": 6,
+  "Downtime": "0T00:06:37",
+  "LinkCount": 1,
+  "RSSI": 60,
+  "SSId": "belkin.f35",
+  "Signal": -70
+ }
+}

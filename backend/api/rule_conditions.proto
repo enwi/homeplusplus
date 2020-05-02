@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "api/rule.proto";
+import "google/protobuf/any.proto";
+
+package messages;
+
+message RuleCompareConditionData {
+	enum Operator {
+		AND = 0;
+		OR = 1;
+		NAND = 2;
+		NOR = 3;
+		EQUAL = 4;
+		NOT_EQUAL = 5;
+	}
+	oneof left_oneof { 
+		uint64 left_id = 1;
+		RuleCondition left_condition = 2;
+	}
+	oneof right_oneof {
+		uint64 right_id = 3;
+		RuleCondition right_condition = 4;
+	}
+	Operator compare = 5;
+}
+
+message RuleTimeConditionData {
+	enum Operator {
+		EQUALS = 0;
+		NOT_EQUALS = 1;
+		GREATER = 2;
+		LESS = 3;
+		IN_RANGE = 4;
+	}
+	enum Type {
+		HOUR_MIN_SEC = 0;
+		HOUR = 1;
+		DAY_WEEK = 2;
+		DAY_YEAR = 3;
+		MONTH = 4;
+		YEAR = 5;
+		ABSOLUTE = 6;
+	}
+	uint64 time1 = 1;
+	uint64 time2 = 2;
+	Operator compare = 3;
+	Type time_type = 4;
+}
+
+message RuleDeviceConditionData {
+	enum Operator {
+		EQUALS = 0;
+		NOT_EQUALS = 1;
+		GREATER = 2;
+		LESS = 3;
+		IN_RANGE = 4;
+	}
+	uint64 deviceId = 1;
+	string property = 2;
+	google.protobuf.Any val1 = 3;
+	google.protobuf.Any val2 = 4;
+	Operator compare = 5;
+}

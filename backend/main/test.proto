@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Test{
+	uint64 id = 1;
+}

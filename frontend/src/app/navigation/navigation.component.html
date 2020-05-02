@@ -1,0 +1,50 @@
+<div>
+  <mat-toolbar class="mat-primary">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span i18n>Smarthome</span>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)" disableClose="(isHandset$ | async)">
+      <mat-nav-list>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/user']">
+          <app-navigation-user></app-navigation-user>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/']">
+          <mat-icon>home</mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Dashboard">Dashboard</ng-container></span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/devices']">
+          <mat-icon>devices_other</mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Devices">Devices</ng-container>
+            </span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/actions']">
+          <mat-icon svgIcon="actions"></mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Actions">Actions</ng-container>
+            </span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/rules']">
+          <mat-icon svgIcon="rules"></mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Rules">Rules</ng-container>
+            </span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/stats']">
+          <mat-icon>timeline</mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Statistics">Statistics</ng-container>
+            </span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/settings']">
+          <mat-icon>settings</mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Settings">Settings</ng-container></span>
+        </a>
+        <a mat-list-item (click)="onLinkClick()" [routerLink]="['/logout']">
+          <mat-icon svgIcon="logout"></mat-icon><span>&nbsp;&nbsp;<ng-container i18n="@@Logout">Logout</ng-container>
+            </span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content role="main">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<app-popup-notification></app-popup-notification>

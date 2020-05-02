@@ -1,0 +1,46 @@
+@import '~@angular/material/theming';
+
+.grid-container {
+  margin: 16px;
+}
+
+.action-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-card {
+  @include mat-elevation-transition;
+  @include mat-elevation(1);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  margin: 8px;
+  user-select: none;
+
+  &:hover, &:focus {
+    @include mat-elevation(8);
+  }
+}
+
+.action-card-div {
+  padding: 16px;
+  //Undo action-card padding
+  margin: -16px -16px 0 -16px !important;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: border-box;
+  // Grow to fit container
+  flex-grow: 1;
+  display: inline-block;
+  // Has to be relative, otherwise ripple effect is not clipped
+  position: relative;
+  cursor: pointer;
+}
+
+.align-right {
+  text-align: right;
+}

@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>{{propertyName}}</mat-card-title>
+  <mat-card-subtitle>{{deviceName}}</mat-card-subtitle>
+  <mat-card-content>
+    <div *ngIf="chartData; else no_data" class="chart-container">
+      <ngx-charts-line-chart [scheme]="colorScheme" [results]="chartData" autoScale="true" roundDomains="true"
+        [curve]="curve">
+        <ng-template #seriesTooltipTemplate let-model="model">
+          <div class="area-tooltip-container">
+            <div *ngIf="model[0]">{{model[0].name | date:'medium'}}</div>
+            <div style="text-align: left;">
+              <div *ngFor="let entry of model" class="tooltip-item">
+                <span class="tooltip-item-color" [style.background-color]="entry.color"></span>
+                {{entry.series}}: {{entry.value}}
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-charts-line-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #no_data i18n="@@no_data">
+  No data available!
+</ng-template>

@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "/usr/local/include",
+                "${workspaceFolder}/libs/asio",
+                "${workspaceFolder}/libs/cryptopp",
+                "${workspaceFolder}/libs/hueplusplus/hueplusplus/include",
+                "${workspaceFolder}/libs/nlohmann-json",
+                "${workspaceFolder}/libs/polymorphic_value",
+                "${workspaceFolder}/libs/rcswitch-pi",
+                "${workspaceFolder}/libs/sqlite-almagation",
+                "${workspaceFolder}/libs/websocketpp/websocketpp",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        }
+    ],
+    "version": 4
+}
