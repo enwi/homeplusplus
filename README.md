@@ -1,6 +1,27 @@
 # homeplusplus
 This is Home++ a smart home system based on C++ with a focus on ease of use (setup, user interaction, ...) though at the moment lacking a bit on the front end side.
 
+Features:
+*  Actions
+   * Set device properties
+   * Toggle device properties
+   * Display notifications
+*  Rules (lacking easy creation through GUI)
+   * Set device properties
+   * Toggle device properties
+   * Display notifications
+   * Call other actions
+*  Notifications
+   * Informations
+   * Warnings
+*  Multiple users with different rights (lacking configuration in GUI)
+   * password protected
+
+Supported devices:
+*  Philips Hue lights
+*  Tasmota devices (almost all sensors and actuators)
+*  Remote sockets (433MHz only on Raspberry Pi)
+
 ## Installation process
 
 ### Prerequisites
