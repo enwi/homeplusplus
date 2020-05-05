@@ -10,9 +10,10 @@ Home++ needs [mosquitto](https://mosquitto.org/), so install it:
 *  Windows: [Download](https://mosquitto.org/download/) and install/run exe
 
 ### Build Home++ backend
-Create a new folder inside the `backend` folder, in this example we are using `bin`
+Create a new folder inside the `backend` folder, in this example we are using `bin` as our 'binary' folder
 *  `cd backend`
 *  `mkdir bin`
+*  `cd bin`
 
 Then decide whether you want support for remote sockets (433MHz) aka use the remote socket API or not.
 If so run cmake like this:
