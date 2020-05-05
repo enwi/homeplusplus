@@ -15,12 +15,12 @@ Create a new folder inside the `backend` folder, in this example we are using `b
 *  `mkdir bin`
 *  `cd bin`
 
-Then decide whether you want support for remote sockets (433MHz) aka use the remote socket API or not.
+Then decide whether you want support for remote sockets (433MHz) aka use the remote socket API or not (only on Raspberry Pi, requires RCSwitch-Pi).
 If so run cmake like this:
-*  `cmake .. -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Release -DHomePlusPlus_REMOTE_SOCKET=ON`
+*  `cmake .. -DCMAKE_BUILD_TYPE=Release -DHomePlusPlus_REMOTE_SOCKET=ON`
 
 If not like this:
-*  `cmake .. -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Release`
+*  `cmake .. -DCMAKE_BUILD_TYPE=Release`
 
 Then compile the backend with:
 *  `make HomePlusPlus`
