@@ -89,7 +89,7 @@ int Main::Run()
 
         log.Info("Setup started.");
         // TODO: open database here
-        m_dbHandler.CreateTables();
+        m_dbHandler.CreateTables(m_authenticator);
         m_deviceReg.InitAPIs(
             m_apiConfigDir, Res::EventSystem(), Res::ConditionRegistry(), Res::ActionRegistry(), m_deviceTypes);
 

@@ -14,6 +14,7 @@
 #include "SQLiteDatabase.h"
 
 #include "../api/Resources.h"
+#include "../communication/Authenticator.h"
 #include "../utility/Logger.h"
 
 class DBValue
@@ -23,7 +24,7 @@ public:
     friend bool operator!=(const DBValue& lhs, const DBValue& rhs) { return lhs.m_value != rhs.m_value; }
 
 public:
-    DBValue() : m_value(absl::in_place_index_t<0>{}, 0) {}
+    DBValue() : m_value(absl::in_place_index_t<0> {}, 0) {}
     // Any 64 bit int
     template <typename T, std::enable_if_t<std::is_integral<T>::value && (sizeof(T) > sizeof(int))>* = nullptr>
     DBValue(T i) : m_value(static_cast<int64_t>(i))
@@ -35,7 +36,7 @@ public:
     DBValue(const std::string& str) : m_value(str) {}
     DBValue(const void* ptr, size_t len)
         : m_value(
-              std::vector<uint8_t>(reinterpret_cast<const uint8_t*>(ptr), reinterpret_cast<const uint8_t*>(ptr) + len))
+            std::vector<uint8_t>(reinterpret_cast<const uint8_t*>(ptr), reinterpret_cast<const uint8_t*>(ptr) + len))
     {}
 
     bool IsInt() const { return absl::holds_alternative<int>(m_value); }
@@ -70,7 +71,7 @@ public:
     // Creates an DBHandler by the arguments
     explicit DBHandler(const std::string& filename);
 
-	void CreateTables();
+    void CreateTables(const Authenticator& authenticator);
 
     DatabaseConnection& GetDatabase() { return m_sqliteDatabase.GetDatabase(); }
 
