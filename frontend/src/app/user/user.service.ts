@@ -30,7 +30,8 @@ export class UserService implements OnDestroy {
     if (!this.subject) {
       this.subject = this.channel.getChannel('profile');
       this.subject.next({command: 'GET_USER'});
-      this.userSubscription = this.subject.subscribe(message => this.handleUser(message));
+      this.userSubscription =
+          this.subject.subscribe(message => this.handleUser(message));
     }
   }
 
@@ -39,8 +40,8 @@ export class UserService implements OnDestroy {
    * @param message The message received from backend
    */
   public handleUser(message: any): void {
-    if (message !== undefined && message.userid !== undefined && message.user !== undefined &&
-        message.pic !== undefined) {
+    if (message !== undefined && message.userid !== undefined &&
+        message.user !== undefined && message.pic !== undefined) {
       this.user.id = message.userid;
       this.user.name = message.user;
       this.user.picture = message.pic;
@@ -95,13 +96,12 @@ export class UserService implements OnDestroy {
   /**
    * Verify a given password for the given user
    * @param password The password to verify
-   * @param userid The user identifier to verify the password for
    * @returns An observerable boolean which is true if the password is correct
    *     and false if not
    */
-  public verifyPassword(password: string, userid: number): Observable<boolean> {
+  public verifyPassword(password: string): Observable<boolean> {
     this.initSubject();
-    this.subject.next({command: 'CHECK_PW', pw: password, userid: userid});
+    this.subject.next({command: 'CHECK_PW', pw: password});
     return this.subject.pipe(
         map((message: any) => this.MessageVerifyPassword(password, message)),
         filter(msg => msg !== undefined), take(1));
@@ -112,18 +112,16 @@ export class UserService implements OnDestroy {
    * @param old_password The old password
    * @param new_password The new password
    * @param repeated_password The repeated new password
-   * @param userid The user identifier
    * @returns An observerable boolean which is true if the password was changed
    *     and false if not
    */
   changePassword(
-      old_password: string, new_password: string, repeated_password: string,
-      userid: number): Observable<boolean> {
+      old_password: string, new_password: string,
+      repeated_password: string): Observable<boolean> {
     this.initSubject();
     this.subject.next({
       command: 'CHANGE_PW',
-      pw: {old: old_password, new: new_password, rep: repeated_password},
-      userid: userid
+      pw: {old: old_password, new: new_password, rep: repeated_password}
     });
     return this.subject.pipe(
         map((message: any) =>
@@ -143,8 +141,7 @@ export class UserService implements OnDestroy {
     this.$user.next(this.user);
 
     this.initSubject();
-    this.subject.next(
-        {command: 'CHANGE_PICTURE', pic: file, userid: this.user.id});
+    this.subject.next({command: 'CHANGE_PICTURE', pic: file});
   }
 
   /**

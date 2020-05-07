@@ -36,7 +36,7 @@ void DBHandler::CreateTables(const Authenticator& authenticator)
     db.execute(UsersTable::createStatement);
 
     auto result = db(select(users.userId).from(users).unconditionally().limit(1u));
-    if (result.begin() == result.end())
+    if (result.empty())
     {
         Res::Logger().Info(
             "DBHandler", "This is likely to be the first start, so the default user \'admin\' will be generated");

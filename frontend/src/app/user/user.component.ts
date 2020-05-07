@@ -45,8 +45,8 @@ export class UserComponent implements OnInit, AfterViewInit {
         '', {
           updateOn: 'submit',
           validators: Validators.required,
-          asyncValidators: PasswordValidator.CreateVerifyPasswordValidator(
-              this.userService, -1)
+          asyncValidators:
+              PasswordValidator.CreateVerifyPasswordValidator(this.userService)
         }
       ]
     });
@@ -73,11 +73,6 @@ export class UserComponent implements OnInit, AfterViewInit {
   getUser(): void {
     this.user$ = this.userService.getUser();
     this.user$.subscribe(user => this.user = user);
-    this.user$.subscribe(
-        user => this.firstFormGroup.get('password').setAsyncValidators([
-          PasswordValidator.CreateVerifyPasswordValidator(
-              this.userService, user.id)
-        ]));
   }
 
   onFileChanged(event) {
@@ -113,7 +108,7 @@ export class UserComponent implements OnInit, AfterViewInit {
     const new_pw = this.secondFormGroup.get('password').value;
     const new_pw_conf = this.secondFormGroup.get('confirmPassword').value;
 
-    this.userService.changePassword(old_pw, new_pw, new_pw_conf, this.user.id)
+    this.userService.changePassword(old_pw, new_pw, new_pw_conf)
         .pipe(map(res => {
           console.log('res: ' + res ? 'true' : 'false');
           if (res) {
