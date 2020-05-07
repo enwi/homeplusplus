@@ -1,8 +1,7 @@
-#include "main/ArgumentParser.h"
-
 #include <gtest/gtest.h>
 
 #include "../SilenceCout.h"
+#include "main/ArgumentParser.h"
 
 // Define ASAN_DISABLE_DEATH_TESTS to 1 to disable all death tests, which causes segfaults in ASan
 #ifndef ASAN_DISABLE_DEATH_TESTS
@@ -47,7 +46,7 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         }
     }
     // Default arguments
-    Arguments d{};
+    Arguments d {};
     {
         const char* args[] = {"test_exe", "-debug"};
         Arguments a = ParseArguments(2, args);
@@ -55,7 +54,6 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         // Other args not changed
         EXPECT_EQ(d.m_directory, a.m_directory);
         EXPECT_EQ(d.m_logDir, a.m_logDir);
-        EXPECT_EQ(d.m_baseId, a.m_baseId);
         EXPECT_EQ(d.m_consoleLogLevel, a.m_consoleLogLevel);
         EXPECT_EQ(d.m_logLevel, a.m_logLevel);
     }
@@ -66,27 +64,8 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         // Other args not changed
         EXPECT_EQ(d.m_debug, a.m_debug);
         EXPECT_EQ(d.m_logDir, a.m_logDir);
-        EXPECT_EQ(d.m_baseId, a.m_baseId);
         EXPECT_EQ(d.m_consoleLogLevel, a.m_consoleLogLevel);
         EXPECT_EQ(d.m_logLevel, a.m_logLevel);
-    }
-    {
-        const char* args[] = {"test_exe", "-baseid", "15345"};
-        Arguments a = ParseArguments(3, args);
-        EXPECT_EQ(15345, a.m_baseId);
-        // Other args not changed
-        EXPECT_EQ(d.m_directory, a.m_directory);
-        EXPECT_EQ(d.m_logDir, a.m_logDir);
-        EXPECT_EQ(d.m_debug, a.m_debug);
-        EXPECT_EQ(d.m_consoleLogLevel, a.m_consoleLogLevel);
-        EXPECT_EQ(d.m_logLevel, a.m_logLevel);
-    }
-    {
-        const char* args[] = {"test_exe", "-baseid", "abcd"};
-        if (g_performDeathTests)
-        {
-            EXPECT_EXIT(ParseArguments(3, args), ::testing::ExitedWithCode(1), ".*");
-        }
     }
     {
         const char* args[] = {"test_exe", "-logDir", "testdir"};
@@ -94,7 +73,6 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         EXPECT_EQ("testdir", a.m_logDir);
         // Other args not changed
         EXPECT_EQ(d.m_directory, a.m_directory);
-        EXPECT_EQ(d.m_baseId, a.m_baseId);
         EXPECT_EQ(d.m_debug, a.m_debug);
         EXPECT_EQ(d.m_consoleLogLevel, a.m_consoleLogLevel);
         EXPECT_EQ(d.m_logLevel, a.m_logLevel);
@@ -108,7 +86,6 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         EXPECT_EQ(d.m_logDir, a.m_logDir);
         EXPECT_EQ(d.m_debug, a.m_debug);
         EXPECT_EQ(d.m_consoleLogLevel, a.m_consoleLogLevel);
-        EXPECT_EQ(d.m_baseId, a.m_baseId);
     }
     {
         const char* args[] = {"test_exe", "-cLogL", "2"};
@@ -118,18 +95,16 @@ TEST(ArgumentParserDeathTest, ParseArguments)
         EXPECT_EQ(d.m_directory, a.m_directory);
         EXPECT_EQ(d.m_logDir, a.m_logDir);
         EXPECT_EQ(d.m_debug, a.m_debug);
-        EXPECT_EQ(d.m_baseId, a.m_baseId);
         EXPECT_EQ(d.m_logLevel, a.m_logLevel);
     }
     {
-        const char* args[] = {"test_exe", "-debug", "-dir", "testdir", "-logDir", "logdir", "-baseid", "1234", "-cLogL",
-            "1", "-logL", "3"};
-        Arguments a = ParseArguments(12, args);
+        const char* args[]
+            = {"test_exe", "-debug", "-dir", "testdir", "-logDir", "logdir", "-cLogL", "1", "-logL", "3"};
+        Arguments a = ParseArguments(10, args);
         EXPECT_EQ(static_cast<Logger::LogLevel>(1), a.m_consoleLogLevel);
         EXPECT_EQ("testdir", a.m_directory);
         EXPECT_EQ("logdir", a.m_logDir);
         EXPECT_EQ(true, a.m_debug);
-        EXPECT_EQ(1234, a.m_baseId);
         EXPECT_EQ(static_cast<Logger::LogLevel>(3), a.m_logLevel);
     }
 }

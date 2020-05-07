@@ -96,21 +96,18 @@ TEST(RuleConstantCondition, ShouldExecuteOn)
     {
         RuleConstantCondition r;
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
     {
         RuleConstantCondition r {0, false};
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
     {
         RuleConstantCondition r {0, true};
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
@@ -1024,13 +1021,6 @@ TEST(RuleCompareCondition, ShouldExecuteOn)
             EXPECT_CALL(m2, ShouldExecuteOn(e)).WillOnce(Return(true));
             EXPECT_TRUE(r.ShouldExecuteOn(e));
         }
-        {
-            EventType e = EventTypes::nodeMessage;
-            EXPECT_CALL(m1, ShouldExecuteOn(e)).WillOnce(Return(true));
-            // Short circuited
-            // EXPECT_CALL(m2, ShouldExecuteOn(e)).WillOnce(Return(false));
-            EXPECT_TRUE(r.ShouldExecuteOn(e));
-        }
     }
     {
         std::unique_ptr<MockRuleCondition> pM1 = std::make_unique<MockRuleCondition>(0);
@@ -1522,21 +1512,18 @@ TEST(RuleTimeCondition, ShouldExecuteOn)
     {
         RuleTimeCondition r;
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
     {
         RuleTimeCondition r {0, 4, 6, RuleTimeCondition::Operator::less, RuleTimeCondition::Type::absolute};
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
     {
         RuleTimeCondition r {0, 3, 6, RuleTimeCondition::Operator::greater, RuleTimeCondition::Type::dayMonth};
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::error));
-        EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::nodeMessage));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::deviceChange));
         EXPECT_TRUE(r.ShouldExecuteOn(EventTypes::ruleChange));
     }
