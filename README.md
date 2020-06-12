@@ -39,6 +39,15 @@ Home++ needs [mosquitto](https://mosquitto.org/), so install it:
 *  MacOs: `brew install mosquitto`
 *  Windows: [Download](https://mosquitto.org/download/) and install/run exe
 
+For Cryptopp to compile with cmake correclty change to the cryptopp folder inside the libs folder
+`cd libs/cryptopp`
+and then download the necessary cmake files
+```
+wget -O CMakeLists.txt https://raw.githubusercontent.com/noloader/cryptopp-cmake/master/CMakeLists.txt
+wget -O cryptopp-config.cmake https://raw.githubusercontent.com/noloader/cryptopp-cmake/master/cryptopp-config.cmake
+```
+more info on this [here](https://github.com/noloader/cryptopp-cmake).
+
 ### Build Home++ backend
 Create a new folder inside the `backend` folder, in this example we are using `bin` as our 'binary' folder
 *  `cd backend`
