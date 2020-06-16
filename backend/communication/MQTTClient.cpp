@@ -9,7 +9,6 @@ MQTTClient::MQTTClient(const std::string& ip, int port)
 {
     m_mosq = mosquitto_new("Home++", false, this);
     mosquitto_connect_callback_set(m_mosq, OnConnectWrapper);
-    mosquitto_connect_with_flags_callback_set(m_mosq, OnConnectWithFlagsWrapper);
     mosquitto_disconnect_callback_set(m_mosq, OnDisconnectWrapper);
     mosquitto_publish_callback_set(m_mosq, OnPublishWrapper);
     mosquitto_message_callback_set(m_mosq, OnMessageWrapper);
@@ -94,7 +93,9 @@ void MQTTClient::handleErrorCode(int code)
 bool MQTTClient::topicMatches(const std::string& subscription, const std::string& topic)
 {
     bool result = false;
-    mosquitto_topic_matches_sub2(subscription.c_str(), subscription.length(), topic.c_str(), topic.length(), &result);
+    // mosquitto_topic_matches_sub2(subscription.c_str(), subscription.length(), topic.c_str(), topic.length(),
+    // &result);
+    mosquitto_topic_matches_sub(subscription.c_str(), topic.c_str(), &result);
     return result;
 }
 
@@ -117,8 +118,6 @@ void MQTTClient::Loop()
 }
 
 void MQTTClient::OnConnect(int returnCode) {}
-
-void MQTTClient::OnConnectWithFlags(int returnCode, int flags) {}
 
 void MQTTClient::OnDisconnect(int reason) {}
 
@@ -194,12 +193,6 @@ void MQTTClient::OnConnectWrapper(struct mosquitto* mosq, void* userdata, int rc
 {
     class MQTTClient* m = (class MQTTClient*)userdata;
     m->OnConnect(rc);
-};
-
-void MQTTClient::OnConnectWithFlagsWrapper(struct mosquitto* mosq, void* userdata, int rc, int flags)
-{
-    class MQTTClient* m = (class MQTTClient*)userdata;
-    m->OnConnectWithFlags(rc, flags);
 };
 
 void MQTTClient::OnDisconnectWrapper(struct mosquitto* mosq, void* userdata, int rc)

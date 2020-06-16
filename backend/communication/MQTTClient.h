@@ -77,17 +77,6 @@ private:
     /// - 4-255 - reserved for future use
     void OnConnect(int returnCode);
     ///
-    /// \brief Called when the broker sends a CONNACK message in response to a connection.
-    ///
-    /// \param returnCode The return code of the connection response, one of:
-    /// - 0 - success
-    /// - 1 - connection refused (unacceptable protocol version)
-    /// - 2 - connection refused (identifier rejected)
-    /// - 3 - connection refused (broker unavailable)
-    /// - 4-255 - reserved for future use
-    /// \param flags The connect flags
-    void OnConnectWithFlags(int returnCode, int flags);
-    ///
     /// \brief Called when the broker has received the DISCONNECT command and has disconnected the client
     ///
     /// \param reason The reason why the client has been disconnected. A value of 0 means the client has called
